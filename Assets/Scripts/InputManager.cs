@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    public bool accelerating { get; private set; }
     public void Accelerate(InputAction.CallbackContext context)
     {
-        Debug.Log("Let's goooo " + context.ReadValue<float>());
+        accelerating = context.performed;
     }
 }
