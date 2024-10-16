@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using UnityEditor.EditorTools;
 using UnityEngine;
+
 //https://www.youtube.com/watch?v=CdPYlj5uZeI&t=1168s - Toyful Games explaination of raycast vehicles
 //https://www.youtube.com/watch?v=LG1CtlFRmpU&t=283s - SpaceDust Studios explaination of raycast vehicles
 
@@ -53,6 +52,7 @@ public class KartLocomotion : MonoBehaviour
             {
                 CalculateSuspension(tire, hit);
                 CancelSidewaysForce(tire);
+                Accelerate(tire);
             }
         }
         foreach (Transform tire in frontTires)
@@ -62,7 +62,6 @@ public class KartLocomotion : MonoBehaviour
     //Calculates a dampened spring force.
     private void CalculateSuspension(Transform tire, RaycastHit ray)
     {
-        //Vector3 springDirection = tire.up;
         Vector3 tireWorldVel = rb.GetPointVelocity(tire.position);
 
         float offset = suspensionLength - ray.distance; //This measures how much the spring is being compressed.
@@ -76,11 +75,10 @@ public class KartLocomotion : MonoBehaviour
     //Prevents the kart from sliding
     private void CancelSidewaysForce(Transform tire)
     {
-        //Vector3 tireRight = tire.right;
         Vector3 tireWorldVel = rb.GetPointVelocity(tire.position);
 
         float steeringVel = Vector3.Dot(tire.right, tireWorldVel);
-        float desiredVelChange = -steeringVel * 1f; //1f = value = (0..1) = the degree by which the sideways velocity is negated. 1 = full negation, 0 = no negation
+        float desiredVelChange = -steeringVel * 0.45f; //1f = value = (0..1) = the degree by which the sideways velocity is negated. 1 = full negation, 0 = no negation
         float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
         rb.AddForceAtPosition(tire.right * 5f * desiredAccel, tire.position); //5f = Mass of the tires
@@ -105,6 +103,15 @@ public class KartLocomotion : MonoBehaviour
 
         float rotation = Mathf.LerpAngle(0, targetAngle, t);
         tire.localEulerAngles = new Vector3(currentAngle.x, rotation, currentAngle.z);
+    }
+
+    private void Accelerate(Transform tire)
+    {
+        if (input.accelerating)
+        {
+            float carSpeed = Vector3.Dot(rb.transform.forward, rb.velocity);
+            rb.AddForceAtPosition(tire.forward * 100f, tire.position);
+        }
     }
 
     private void OnDrawGizmos()
