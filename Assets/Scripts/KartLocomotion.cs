@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using UnityEditor.EditorTools;
 using UnityEngine;
 //https://www.youtube.com/watch?v=CdPYlj5uZeI&t=1168s - Toyful Games explaination of raycast vehicles
 //https://www.youtube.com/watch?v=LG1CtlFRmpU&t=283s - SpaceDust Studios explaination of raycast vehicles
@@ -8,16 +10,31 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class KartLocomotion : MonoBehaviour
 {
-    [SerializeField] private List<Transform> wheels;
+    [SerializeField] private List<Transform> tires;
+    [SerializeField] private List<Transform> frontTires;
+    [SerializeField] private List<Transform> rearTires;
+
     [SerializeField] private InputManager input;
     [SerializeField] private Rigidbody rb;
     [Header("Suspension")]
-    [SerializeField] [Tooltip("The fully extended length of the suspension springs.")]
-        private float suspensionLength = 0.5f;
-    [SerializeField] [Tooltip("The force of the spring to be applied where the wheel is.")]
-        private float springStrength = 600f;
-    [SerializeField] [Tooltip("How much force will be resisted by the spring when returning to the rest position.")]
-        private float springDamping = 15f;
+    [SerializeField]
+    [Tooltip("The fully extended length of the suspension springs.")]
+    private float suspensionLength = 0.5f;
+    [SerializeField]
+    [Tooltip("The force of the spring to be applied where the wheel is.")]
+    private float springStrength = 600f;
+    [SerializeField]
+    [Tooltip("How much force will be resisted by the spring when returning to the rest position.")]
+    private float springDamping = 15f;
+
+    [Header("Steering")]
+    [SerializeField] 
+    [Tooltip("The maximum and minimum angle of the tires when steered.")]
+    private float steeringAngleLimit = 30f;
+    [SerializeField] 
+    [Tooltip("How long it takes for the tires to reach the maximum steering angle in seconds.")]
+    private float timeToRotate = 0.5f;
+    private float lerpTimer = 0; //Value used to lerp between the current and desired tire angle.
 
     // Start is called before the first frame update
     void Start()
@@ -26,38 +43,73 @@ public class KartLocomotion : MonoBehaviour
     }
 
     //Raycast-based kart implementation
-   
     void FixedUpdate()
     {
-        foreach (Transform wheel in wheels)
+        foreach (Transform tire in tires)
         {
             RaycastHit hit;
-            Ray ray = new(wheel.transform.position, -Vector3.up);
+            Ray ray = new(tire.transform.position, -Vector3.up);
             if (Physics.Raycast(ray, out hit, suspensionLength))
             {
-                CalculateSuspension(wheel.transform, hit);
+                CalculateSuspension(tire, hit);
+                CancelSidewaysForce(tire);
             }
         }
+        foreach (Transform tire in frontTires)
+            AdjustSteeringAngle(tire);
     }
 
     //Calculates a dampened spring force.
-    private void CalculateSuspension(Transform wheelTransform, RaycastHit wheelRay)
+    private void CalculateSuspension(Transform tire, RaycastHit ray)
     {
-        Vector3 springDirection = wheelTransform.up;
-        Vector3 wheelWorldVel = rb.GetPointVelocity(wheelTransform.position);
+        //Vector3 springDirection = tire.up;
+        Vector3 tireWorldVel = rb.GetPointVelocity(tire.position);
 
-        float offset = suspensionLength - wheelRay.distance; //This measures how much the spring is being compressed.
-        float vel = Vector3.Dot(springDirection, wheelWorldVel);
-        
+        float offset = suspensionLength - ray.distance; //This measures how much the spring is being compressed.
+        float vel = Vector3.Dot(tire.up, tireWorldVel);
+
         float force = (offset * springStrength) - (vel * springDamping);
 
-        rb.AddForceAtPosition(springDirection * force, wheelTransform.position);
+        rb.AddForceAtPosition(tire.up * force, tire.position);
+    }
+
+    //Prevents the kart from sliding
+    private void CancelSidewaysForce(Transform tire)
+    {
+        //Vector3 tireRight = tire.right;
+        Vector3 tireWorldVel = rb.GetPointVelocity(tire.position);
+
+        float steeringVel = Vector3.Dot(tire.right, tireWorldVel);
+        float desiredVelChange = -steeringVel * 1f; //1f = value = (0..1) = the degree by which the sideways velocity is negated. 1 = full negation, 0 = no negation
+        float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
+
+        rb.AddForceAtPosition(tire.right * 5f * desiredAccel, tire.position); //5f = Mass of the tires
+    }
+
+
+    private void AdjustSteeringAngle(Transform tire)
+    {
+        Vector3 currentAngle = tire.localEulerAngles;
         
+        float inputAngle = input.steering * steeringAngleLimit;
+        inputAngle = Mathf.Clamp(inputAngle, -steeringAngleLimit, steeringAngleLimit);
+        
+        float targetAngle = input.steering != 0 ? inputAngle : currentAngle.y;
+
+        if (input.steering != 0)
+            lerpTimer += Time.fixedDeltaTime;
+        else
+            lerpTimer -= Time.fixedDeltaTime;
+        lerpTimer = Mathf.Clamp(lerpTimer, 0, timeToRotate);
+        float t = lerpTimer / timeToRotate;
+
+        float rotation = Mathf.LerpAngle(0, targetAngle, t);
+        tire.localEulerAngles = new Vector3(currentAngle.x, rotation, currentAngle.z);
     }
 
     private void OnDrawGizmos()
     {
-        foreach (Transform wheel in wheels)
+        foreach (Transform wheel in tires)
             Gizmos.DrawLine(wheel.transform.position, wheel.transform.position + (-Vector3.up * suspensionLength));
     }
 }
