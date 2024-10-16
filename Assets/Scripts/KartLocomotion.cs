@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//https://www.youtube.com/watch?v=CdPYlj5uZeI&t=1168s - Toyful Games explaination of raycast vehicles
+//https://www.youtube.com/watch?v=LG1CtlFRmpU&t=283s - SpaceDust Studios explaination of raycast vehicles
 
 [RequireComponent(typeof(Rigidbody))]
 public class KartLocomotion : MonoBehaviour
@@ -9,10 +11,13 @@ public class KartLocomotion : MonoBehaviour
     [SerializeField] private List<Transform> wheels;
     [SerializeField] private InputManager input;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float suspensionMaxDist;
-    [SerializeField] private float springStrength;
-    [SerializeField] private float springDamping;
-    [SerializeField] private float suspensionRestDist;
+    [Header("Suspension")]
+    [SerializeField] [Tooltip("The fully extended length of the suspension springs.")]
+        private float suspensionLength = 0.5f;
+    [SerializeField] [Tooltip("The force of the spring to be applied where the wheel is.")]
+        private float springStrength = 600f;
+    [SerializeField] [Tooltip("How much force will be resisted by the spring when returning to the rest position.")]
+        private float springDamping = 15f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,19 +25,17 @@ public class KartLocomotion : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    //Physics implementation by Toyful Games
-    //https://www.youtube.com/watch?v=CdPYlj5uZeI&t=1168s
+    //Raycast-based kart implementation
+   
     void FixedUpdate()
     {
         foreach (Transform wheel in wheels)
         {
             RaycastHit hit;
             Ray ray = new(wheel.transform.position, -Vector3.up);
-            if (Physics.Raycast(ray, out hit, suspensionMaxDist))
+            if (Physics.Raycast(ray, out hit, suspensionLength))
             {
                 CalculateSuspension(wheel.transform, hit);
-                CalculateSteering(wheel.transform);
-                CalculateAcceleration(wheel.transform);
             }
         }
     }
@@ -40,45 +43,21 @@ public class KartLocomotion : MonoBehaviour
     //Calculates a dampened spring force.
     private void CalculateSuspension(Transform wheelTransform, RaycastHit wheelRay)
     {
-        Vector3 springDir = wheelTransform.up;
+        Vector3 springDirection = wheelTransform.up;
         Vector3 wheelWorldVel = rb.GetPointVelocity(wheelTransform.position);
 
-        float offset = suspensionRestDist - wheelRay.distance;
-        float vel = Vector3.Dot(springDir, wheelWorldVel);
+        float offset = suspensionLength - wheelRay.distance; //This measures how much the spring is being compressed.
+        float vel = Vector3.Dot(springDirection, wheelWorldVel);
         
         float force = (offset * springStrength) - (vel * springDamping);
 
-        rb.AddForceAtPosition(springDir * force, wheelTransform.position);
+        rb.AddForceAtPosition(springDirection * force, wheelTransform.position);
         
-    }
-
-    private void CalculateSteering(Transform wheelTransform)
-    {
-        Vector3 steeringDir = wheelTransform.right;
-        Vector3 wheelWorldVel = rb.GetPointVelocity(wheelTransform.position);
-
-        float steeringVel = Vector3.Dot(steeringDir, wheelWorldVel);
-        float desiredVelChange = -steeringVel * 1f; //1f = should be a value between 0 to 1. 0 = no grip, 1 = full grip
-        
-        float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
-
-        rb.AddForceAtPosition(steeringDir * 1 * desiredAccel, wheelTransform.position); //1 = tire mass
-    }
-
-    private void CalculateAcceleration(Transform wheelTransform)
-    {
-        Vector3 accelDir = wheelTransform.forward;
-
-        if (input.accelerating)
-        {
-            float kartSpeed = 10;
-            rb.AddForceAtPosition(accelDir * kartSpeed, wheelTransform.position);
-        }
     }
 
     private void OnDrawGizmos()
     {
         foreach (Transform wheel in wheels)
-            Gizmos.DrawLine(wheel.transform.position, wheel.transform.position + (-Vector3.up * suspensionMaxDist));
+            Gizmos.DrawLine(wheel.transform.position, wheel.transform.position + (-Vector3.up * suspensionLength));
     }
 }
