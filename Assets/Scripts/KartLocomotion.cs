@@ -12,9 +12,11 @@ public class KartLocomotion : MonoBehaviour
 {
     [SerializeField] private List<Transform> tires;
     [SerializeField] private List<Transform> frontTires;
+    [SerializeField] private List<Transform> tireGFX;
     [SerializeField] private ScriptableKart kart;
 
     [SerializeField] private List<Transform> rearTires;
+    [SerializeField] private float tireRadius = 0.425f;
 
     [SerializeField] private InputManager input;
     [SerializeField] private Rigidbody rb;
@@ -27,6 +29,7 @@ public class KartLocomotion : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    float tirePos = 0.425f;
     //Raycast-based kart implementation
     void FixedUpdate()
     {
@@ -44,10 +47,21 @@ public class KartLocomotion : MonoBehaviour
                 CalculateSuspension(tire, hit);
                 CancelSidewaysForce(tire);
                 Accelerate(tire);
+                tirePos = hit.point.y + tireRadius;
             }
         }
         foreach (Transform tire in frontTires)
             AdjustSteeringAngle(tire);
+
+        for (int i = 0; i < tireGFX.Count; i++)
+        {
+            foreach (Transform frontTire in frontTires)
+            {
+                if (i < frontTires.Count)
+                    tireGFX[i].localEulerAngles = new Vector3(frontTire.localEulerAngles.x, frontTire.localEulerAngles.y, tireGFX[i].localEulerAngles.z);
+            }
+            tireGFX[i].position = new Vector3(tires[i].position.x, tirePos, tires[i].position.z);
+        }
     }
 
     //Calculates a dampened spring force.
