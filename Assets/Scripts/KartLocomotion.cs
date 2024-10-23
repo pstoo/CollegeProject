@@ -5,6 +5,7 @@ using UnityEngine;
 
 //https://www.youtube.com/watch?v=CdPYlj5uZeI&t=1168s - Toyful Games explaination of raycast vehicles
 //https://www.youtube.com/watch?v=LG1CtlFRmpU&t=283s - SpaceDust Studios explaination of raycast vehicles
+//https://digitalrune.github.io/DigitalRune-Documentation/html/143af493-329d-408f-975d-e63625646f2f.htm - Digital Rune documentation
 
 [RequireComponent(typeof(Rigidbody))]
 public class KartLocomotion : MonoBehaviour
@@ -21,19 +22,22 @@ public class KartLocomotion : MonoBehaviour
     private float suspensionLength = 0.5f;
     [SerializeField]
     [Tooltip("The force of the spring to be applied where the wheel is.")]
-    private float springStrength = 600f;
+    private float springStrength = 600.0f;
     [SerializeField]
     [Tooltip("How much force will be resisted by the spring when returning to the rest position.")]
-    private float springDamping = 15f;
+    private float springDamping = 15.0f;
 
     [Header("Steering")]
-    [SerializeField] 
+    [SerializeField]
     [Tooltip("The maximum and minimum angle of the tires when steered.")]
-    private float steeringAngleLimit = 30f;
-    [SerializeField] 
+    private float steeringAngleLimit = 30.0f;
+    [SerializeField]
     [Tooltip("How long it takes for the tires to reach the maximum steering angle in seconds.")]
     private float timeToRotate = 0.5f;
-    private float lerpTimer = 0; //Value used to lerp between the current and desired tire angle.
+    [SerializeField] [Range(0,1)]
+    [Tooltip("A value between 0..1 that determines how much the tires will resist sliding.")]
+    private float tireGrip = 1.0f;
+    private float lerpTimer = 0.0f; //Value used to lerp between the current and desired tire angle.
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +48,11 @@ public class KartLocomotion : MonoBehaviour
     //Raycast-based kart implementation
     void FixedUpdate()
     {
+        if (input.steering != 0)
+            lerpTimer += Time.fixedDeltaTime;
+        else
+            lerpTimer -= Time.fixedDeltaTime;
+
         foreach (Transform tire in tires)
         {
             RaycastHit hit;
@@ -78,7 +87,7 @@ public class KartLocomotion : MonoBehaviour
         Vector3 tireWorldVel = rb.GetPointVelocity(tire.position);
 
         float steeringVel = Vector3.Dot(tire.right, tireWorldVel);
-        float desiredVelChange = -steeringVel * 0.45f; //1f = value = (0..1) = the degree by which the sideways velocity is negated. 1 = full negation, 0 = no negation
+        float desiredVelChange = -steeringVel * tireGrip;
         float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
         rb.AddForceAtPosition(tire.right * 5f * desiredAccel, tire.position); //5f = Mass of the tires
@@ -88,16 +97,12 @@ public class KartLocomotion : MonoBehaviour
     private void AdjustSteeringAngle(Transform tire)
     {
         Vector3 currentAngle = tire.localEulerAngles;
-        
+
         float inputAngle = input.steering * steeringAngleLimit;
         inputAngle = Mathf.Clamp(inputAngle, -steeringAngleLimit, steeringAngleLimit);
-        
+
         float targetAngle = input.steering != 0 ? inputAngle : currentAngle.y;
 
-        if (input.steering != 0)
-            lerpTimer += Time.fixedDeltaTime;
-        else
-            lerpTimer -= Time.fixedDeltaTime;
         lerpTimer = Mathf.Clamp(lerpTimer, 0, timeToRotate);
         float t = lerpTimer / timeToRotate;
 
@@ -110,7 +115,7 @@ public class KartLocomotion : MonoBehaviour
         if (input.accelerating)
         {
             float carSpeed = Vector3.Dot(rb.transform.forward, rb.velocity);
-            rb.AddForceAtPosition(tire.forward * 100f, tire.position);
+            rb.AddForceAtPosition(tire.forward * 125f, tire.position);
         }
     }
 
