@@ -111,7 +111,7 @@ public class KartLocomotion : MonoBehaviour
         if (input.accelerating)
         {
             float carSpeed = Vector3.Dot(rb.transform.forward, rb.velocity);
-            rb.AddForceAtPosition(tire.forward * 125f, tire.position);
+            rb.AddForceAtPosition(tire.forward * kart.Speed, tire.position);
         }
     }
 
