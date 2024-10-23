@@ -12,31 +12,13 @@ public class KartLocomotion : MonoBehaviour
 {
     [SerializeField] private List<Transform> tires;
     [SerializeField] private List<Transform> frontTires;
+    [SerializeField] private ScriptableKart kart;
+
     [SerializeField] private List<Transform> rearTires;
 
     [SerializeField] private InputManager input;
     [SerializeField] private Rigidbody rb;
-    [Header("Suspension")]
-    [SerializeField]
-    [Tooltip("The fully extended length of the suspension springs.")]
-    private float suspensionLength = 0.5f;
-    [SerializeField]
-    [Tooltip("The force of the spring to be applied where the wheel is.")]
-    private float springStrength = 600.0f;
-    [SerializeField]
-    [Tooltip("How much force will be resisted by the spring when returning to the rest position.")]
-    private float springDamping = 15.0f;
 
-    [Header("Steering")]
-    [SerializeField]
-    [Tooltip("The maximum and minimum angle of the tires when steered.")]
-    private float steeringAngleLimit = 30.0f;
-    [SerializeField]
-    [Tooltip("How long it takes for the tires to reach the maximum steering angle in seconds.")]
-    private float timeToRotate = 0.5f;
-    [SerializeField] [Range(0,1)]
-    [Tooltip("A value between 0..1 that determines how much the tires will resist sliding.")]
-    private float tireGrip = 1.0f;
     private float lerpTimer = 0.0f; //Value used to lerp between the current and desired tire angle.
 
     // Start is called before the first frame update
@@ -57,7 +39,7 @@ public class KartLocomotion : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = new(tire.transform.position, -Vector3.up);
-            if (Physics.Raycast(ray, out hit, suspensionLength))
+            if (Physics.Raycast(ray, out hit, kart.SuspensionLength))
             {
                 CalculateSuspension(tire, hit);
                 CancelSidewaysForce(tire);
@@ -73,10 +55,10 @@ public class KartLocomotion : MonoBehaviour
     {
         Vector3 tireWorldVel = rb.GetPointVelocity(tire.position);
 
-        float offset = suspensionLength - ray.distance; //This measures how much the spring is being compressed.
+        float offset = kart.SuspensionLength - ray.distance; //This measures how much the spring is being compressed.
         float vel = Vector3.Dot(tire.up, tireWorldVel);
 
-        float force = (offset * springStrength) - (vel * springDamping);
+        float force = (offset * kart.SpringStrength) - (vel * kart.SpringDamping);
 
         rb.AddForceAtPosition(tire.up * force, tire.position);
     }
@@ -87,7 +69,7 @@ public class KartLocomotion : MonoBehaviour
         Vector3 tireWorldVel = rb.GetPointVelocity(tire.position);
 
         float steeringVel = Vector3.Dot(tire.right, tireWorldVel);
-        float desiredVelChange = -steeringVel * tireGrip;
+        float desiredVelChange = -steeringVel * kart.TireGrip;
         float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
         rb.AddForceAtPosition(tire.right * 5f * desiredAccel, tire.position); //5f = Mass of the tires
@@ -98,13 +80,13 @@ public class KartLocomotion : MonoBehaviour
     {
         Vector3 currentAngle = tire.localEulerAngles;
 
-        float inputAngle = input.steering * steeringAngleLimit;
-        inputAngle = Mathf.Clamp(inputAngle, -steeringAngleLimit, steeringAngleLimit);
+        float inputAngle = input.steering * kart.SteeringAngleLimit;
+        inputAngle = Mathf.Clamp(inputAngle, -kart.SteeringAngleLimit, kart.SteeringAngleLimit);
 
         float targetAngle = input.steering != 0 ? inputAngle : currentAngle.y;
 
-        lerpTimer = Mathf.Clamp(lerpTimer, 0, timeToRotate);
-        float t = lerpTimer / timeToRotate;
+        lerpTimer = Mathf.Clamp(lerpTimer, 0, kart.TimeToRotate);
+        float t = lerpTimer / kart.TimeToRotate;
 
         float rotation = Mathf.LerpAngle(0, targetAngle, t);
         tire.localEulerAngles = new Vector3(currentAngle.x, rotation, currentAngle.z);
@@ -122,6 +104,6 @@ public class KartLocomotion : MonoBehaviour
     private void OnDrawGizmos()
     {
         foreach (Transform wheel in tires)
-            Gizmos.DrawLine(wheel.transform.position, wheel.transform.position + (-Vector3.up * suspensionLength));
+            Gizmos.DrawLine(wheel.transform.position, wheel.transform.position + (-Vector3.up * kart.SuspensionLength));
     }
 }

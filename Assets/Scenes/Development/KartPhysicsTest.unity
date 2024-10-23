@@ -2088,17 +2088,12 @@ MonoBehaviour:
   frontTires:
   - {fileID: 317305887}
   - {fileID: 806701908}
+  kart: {fileID: 11400000, guid: f07bc733ab0f69f4b8beacb2465dc574, type: 2}
   rearTires:
   - {fileID: 1895674919}
   - {fileID: 2053494070}
   input: {fileID: 1378443238}
   rb: {fileID: 909391964}
-  suspensionLength: 0.6
-  springStrength: 900
-  springDamping: 100
-  steeringAngleLimit: 30
-  timeToRotate: 1
-  tireGrip: 1
 --- !u!54 &909391964
 Rigidbody:
   m_ObjectHideFlags: 0
