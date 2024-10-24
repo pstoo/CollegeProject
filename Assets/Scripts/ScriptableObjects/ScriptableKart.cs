@@ -33,6 +33,8 @@ public class ScriptableKart : ScriptableObject
     [Header("Acceleration")]
     [SerializeField] private float speed = 50f;
 
+    [SerializeField] private float tireRadius = 0.425f;
+
 
     //Properties
     public float SuspensionLength { get { return suspensionLength; } }
@@ -44,4 +46,6 @@ public class ScriptableKart : ScriptableObject
     public float TireGrip { get { return tireGrip; } }
 
     public float Speed { get { return speed; } }
+
+    public float TireRadius { get { return tireRadius; } }
 }

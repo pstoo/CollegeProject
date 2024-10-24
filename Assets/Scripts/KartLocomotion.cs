@@ -16,10 +16,10 @@ public class KartLocomotion : MonoBehaviour
     [SerializeField] private ScriptableKart kart;
 
     [SerializeField] private List<Transform> rearTires;
-    [SerializeField] private float tireRadius = 0.425f;
 
     [SerializeField] private InputManager input;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private KartAnimation animator;
 
     private float lerpTimer = 0.0f; //Value used to lerp between the current and desired tire angle.
 
@@ -47,7 +47,7 @@ public class KartLocomotion : MonoBehaviour
                 CalculateSuspension(tire, hit);
                 CancelSidewaysForce(tire);
                 Accelerate(tire);
-                tirePos = hit.point.y + tireRadius;
+                animator.UpdateSuspensionPoint(tires.IndexOf(tire), hit.point.y);
             }
         }
         foreach (Transform tire in frontTires)
@@ -55,12 +55,10 @@ public class KartLocomotion : MonoBehaviour
 
         for (int i = 0; i < tireGFX.Count; i++)
         {
-            foreach (Transform frontTire in frontTires)
-            {
-                if (i < frontTires.Count)
-                    tireGFX[i].localEulerAngles = new Vector3(frontTire.localEulerAngles.x, frontTire.localEulerAngles.y, tireGFX[i].localEulerAngles.z);
-            }
-            tireGFX[i].position = new Vector3(tires[i].position.x, tirePos, tires[i].position.z);
+            if (i < frontTires.Count)
+                animator.UpdateTireRotation(i, frontTires[i].localEulerAngles.y);
+
+            animator.UpdateTirePosition(i, tires[i].position.x, tires[i].position.z);
         }
     }
 
