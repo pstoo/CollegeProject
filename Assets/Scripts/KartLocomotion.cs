@@ -29,7 +29,6 @@ public class KartLocomotion : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    float tirePos = 0.425f;
     //Raycast-based kart implementation
     void FixedUpdate()
     {
