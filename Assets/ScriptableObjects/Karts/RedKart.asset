@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suspensionLength: 1.25
   springStrength: 1000
-  springDamping: 500
+  springDamping: 300
   steeringAngleLimit: 30
   timeToRotate: 0.75
   tireGrip: 0.75
   speed: 200
+  tireRadius: 1.1

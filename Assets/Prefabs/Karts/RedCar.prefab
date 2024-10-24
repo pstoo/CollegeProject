@@ -509,8 +509,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9110898630660747574}
   - component: {fileID: 6527399831149905774}
-  - component: {fileID: 8034297596139076096}
   - component: {fileID: 2838940811790060025}
+  - component: {fileID: 8034297596139076096}
+  - component: {fileID: 658111533586508563}
   m_Layer: 0
   m_Name: RedCar
   m_TagString: Untagged
@@ -562,6 +563,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &2838940811790060025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6471208774664075316}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.9950256, y: 2.9057283, z: 13.345833}
+  m_Center: {x: 0.034324646, y: 2.1630526, z: 0.09366703}
 --- !u!114 &8034297596139076096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,27 +614,25 @@ MonoBehaviour:
   tireRadius: 1.1
   input: {fileID: 0}
   rb: {fileID: 0}
---- !u!65 &2838940811790060025
-BoxCollider:
+  animator: {fileID: 658111533586508563}
+--- !u!114 &658111533586508563
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6471208774664075316}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.9950256, y: 2.9057283, z: 13.345833}
-  m_Center: {x: 0.034324646, y: 2.1630526, z: 0.09366703}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e6aed37c41cea4aba8e1cb62ed91f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kart: {fileID: 11400000, guid: 97a1609ee248af640946dced74395d45, type: 2}
+  tireGFX:
+  - {fileID: 2642905075813830936}
+  - {fileID: 5682383792329866232}
+  - {fileID: 5721549894291567133}
+  - {fileID: 5238798039619360906}
 --- !u!1 &7210293574972699716
 GameObject:
   m_ObjectHideFlags: 0
