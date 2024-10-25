@@ -42,7 +42,7 @@ MonoBehaviour:
     - ground
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 17009eaea48623745b0566d1c4ab4914
-    m_Address: Assets/TrackPieces/Ground/Road/roadCornerBridgeLarger.prefab
+    m_Address: roadCornerBridgeLarger
     m_ReadOnly: 0
     m_SerializedLabels:
     - ground
@@ -290,8 +290,7 @@ MonoBehaviour:
   - m_GUID: c8d54a7468e06e243883d5a71b23bc9b
     m_Address: roadStraightSkew
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - ground
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb69362d41c579a46b5aeaa50351f3b6
     m_Address: roadStraightBridgeStart
@@ -322,6 +321,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e917bded3b444c5489fdc772c20a38fa
+    m_Address: Models/KennyAssets/TrackPieces
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - models
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef24284f6f2d47c44a50162bd1be2f93
     m_Address: roadStraightLong
