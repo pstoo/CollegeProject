@@ -1,0 +1,366 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: TrackPieces
+  m_EditorClassIdentifier: 
+  m_GroupName: TrackPieces
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d857188cb2105b045bb71890893ea093
+  m_SerializeEntries:
+  - m_GUID: 02e2aa1c946d1224281c235190dbf382
+    m_Address: roadCornerLargerWallInner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bb5c47f878d33d42bfca57358d3eae4
+    m_Address: roadStartPositions
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e8a2214eac9a33469959c644429e2b0
+    m_Address: roadSplitLarge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11417b1a6346b0b4db222afc983d6d2d
+    m_Address: roadCornerSmallBorder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17009eaea48623745b0566d1c4ab4914
+    m_Address: roadCornerBridgeLarger
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 178ba45d27fdb3342b10cb58e9f88ff2
+    m_Address: roadCornerLarger
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e3a5409c6e56804fab11dea12009d10
+    m_Address: roadCornerLarge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25dbb8f6e594c1e4e90994850d1fe21b
+    m_Address: roadPitStraight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2be3a640f69589f42910b882497d7543
+    m_Address: roadCornerSmallSand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3311eff2b4c02284a8cfca1876c0645e
+    m_Address: roadCornerSmallWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b715c5f8d5af6741bced41c9444f476
+    m_Address: roadCornerLargerBorderInner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b76eb9fbdd75b8498ff968acaaed951
+    m_Address: roadCornerLargerBorder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4160c76564eb2a04598e040111083b0d
+    m_Address: roadCornerLargeSandInner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46a55167899853246baab05d5bfa0755
+    m_Address: roadPitEntry
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47ca2b626804b2d4abd70cd53974cb54
+    m_Address: roadStart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4828f815dc454cf4eb1b336f2bb89f49
+    m_Address: roadCornerSmall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4eb546ae509a68c4d8184626b7827d55
+    m_Address: roadRampLongCurvedWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 550c337609984554cae31f1fed766e46
+    m_Address: roadStraightBridge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e7c30f6945919d4a8f534992bcb557a
+    m_Address: roadRampLongWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64570290a21464d4ab703877c61111ce
+    m_Address: roadPitStraightLong
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65d64961e8c16b440b7670cb413f72d3
+    m_Address: roadCornerLargerSandInner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66a5e4f2bc1550049a938cd7dff50265
+    m_Address: roadStraightLongMid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e670b07f737179479e0ad5c1e5da0bd
+    m_Address: roadStraightLongBumpRound
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ff4d432139bff7459fd462fe059dad5
+    m_Address: roadCornerLargerWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 707d9d77089f3fb40a72d1fcaa76dac9
+    m_Address: roadCornerSmallSquare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8161aff29760852498879e57f3023854
+    m_Address: roadCornerLargeSand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86a03dd6abb3dfc45981d2cbb332e33a
+    m_Address: roadSide
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87e2dc4833f27974f9b9aaf4bb779999
+    m_Address: roadEnd
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a122ae2606561f40b67be5198cecb93
+    m_Address: roadRampWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8af9109cce10ce74fbb941d5fd58c7c8
+    m_Address: roadStraightLongBump
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cacace0176d46d43b8a29f8b1291dfa
+    m_Address: roadRampLong
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 961a2cd4bea593548b9768f682b43f7e
+    m_Address: roadPitGarage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f585f9d3b943fe41a01652507e08f63
+    m_Address: roadCornerLargerSand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ff23123c6c44c94c9fc6426c77672b2
+    m_Address: roadCornerBridgeLarge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a44da9cfe3f695d4b9eab77ba498f25b
+    m_Address: roadSplit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa5fc5d487560e94d9c88a74a9f66f26
+    m_Address: roadCrossing
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afd013cdb1ae0f34e95490c692ad3426
+    m_Address: grass
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b89cdc5afaf074a45866b2b17f83f7df
+    m_Address: roadCornerLargeWallInner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8b54624fe97f2a47a44d117c3b0ae5b
+    m_Address: roadCornerLargeBorderInner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbea0c25be9a5e243aeca30db24dbcce
+    m_Address: roadSplitRoundLarge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf70868f31b517a4da743505c6cd2951
+    m_Address: roadCurvedSplit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0392da12721eb349b8f51134dbaa25b
+    m_Address: roadSplitRound
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1f9242963ba9f44997b5406fa57df6c
+    m_Address: roadCurved
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5a7503293364fc4c8fa703f0d39df23
+    m_Address: roadCornerLargeWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c84079cf683b71e4aa12fcd78f139e67
+    m_Address: roadRamp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8d54a7468e06e243883d5a71b23bc9b
+    m_Address: roadStraightSkew
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb69362d41c579a46b5aeaa50351f3b6
+    m_Address: roadStraightBridgeStart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d60b9e765d1894b449a0e9f6dcd3238d
+    m_Address: roadSplitLarger
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e093371aacbc8754b99ad6aa5ae2f343
+    m_Address: roadCornerBridgeSmall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e649e286af79b2b4f96b7175365db2d7
+    m_Address: roadStraight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7c8aef160e7d424a865d18c54a904ae
+    m_Address: roadRampLongCurved
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e917bded3b444c5489fdc772c20a38fa
+    m_Address: Models/KennyAssets/TrackPieces
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - models
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef24284f6f2d47c44a50162bd1be2f93
+    m_Address: roadStraightLong
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef595d6e4e2916d4bb02c161385e15ba
+    m_Address: roadCornerLargeBorder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f919806acea72e94d9d21760b2462e4d
+    m_Address: roadStraightBridgeMid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fac1d7313530c3244a2d20cc6cc2125b
+    m_Address: roadSplitSmall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffb69144c0bcb6f4895217b1f84a57f1
+    m_Address: roadStraightArrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3e32300ceb0a2fd4f862304da01ce83c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 11d8ea3c495a7bf41810c7d768f33562, type: 2}
+    - {fileID: 11400000, guid: 85ad68fe51c41564ca539a4296a0d9d6, type: 2}

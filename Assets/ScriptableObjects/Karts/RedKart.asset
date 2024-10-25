@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6297158f62aa6aa46be12f88c1182e24, type: 3}
   m_Name: RedKart
   m_EditorClassIdentifier: 
-  suspensionLength: 1.25
-  springStrength: 1000
-  springDamping: 300
+  suspensionLength: 1.75
+  springStrength: 900
+  springDamping: 200
   steeringAngleLimit: 30
   timeToRotate: 0.75
   tireGrip: 0.75
-  speed: 200
+  speed: 100
   tireRadius: 1.1
