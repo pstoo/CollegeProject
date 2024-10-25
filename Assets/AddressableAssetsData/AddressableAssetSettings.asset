@@ -130,6 +130,7 @@ MonoBehaviour:
     - ground
     - TEST
     - models
+    - level
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: af79d82e255133546a0556e48a992b1a, type: 2}
