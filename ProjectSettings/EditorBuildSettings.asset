@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/RaceSetUp.unity
+    guid: fd779dc0273760142a8705bbd3c71056
+  - enabled: 1
+    path: Assets/Scenes/KeplerCircuit.unity
+    guid: 7250db7ac280e8147a754e0410354933
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 458ec40ab8cea17409ce11ef43b146e8, type: 2}
