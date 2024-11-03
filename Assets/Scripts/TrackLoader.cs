@@ -9,29 +9,28 @@ using UnityEngine.SceneManagement;
 public class TrackLoader : MonoBehaviour
 {
     [SerializeField] private string defaultTrack = "KeplerCircuit"; //not good but servicible until something better comes along
-    [SerializeField] private string[] keys;
+    [SerializeField] private string[] keys; //Kepler circuit needs to be "unbaked" into the game, so as to make it so that there is no bloat.
     private AsyncOperationHandle<SceneInstance> trackHandle;
+
+    private void Start()
+    {
+        //Load Addressables
+    }
 
     public void LoadTrack(int index)
     {
-        if (index != -1)
+        if (index > -1)
             trackHandle = Addressables.LoadSceneAsync(keys[index], UnityEngine.SceneManagement.LoadSceneMode.Single);
-        else
-            StartCoroutine(LoadDefaultTrack());
+        
     }
 
-    private IEnumerator LoadDefaultTrack()
+    private void OnDestroy()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(defaultTrack);
-
-        while (!operation.isDone)
-            yield return null;
+        //Throwing a warning because it's trying to unload the only loaded scene. This will need to be mirrored some how.
+        // if (trackHandle.IsValid())
+        //     Addressables.UnloadSceneAsync(trackHandle);
     }
 
-    private void OnDestroy() 
-    {
-        if (trackHandle.IsValid())
-            Addressables.UnloadSceneAsync(trackHandle);
-    }
+    public string[] TrackKeys { get { return keys; } }
 
 }
