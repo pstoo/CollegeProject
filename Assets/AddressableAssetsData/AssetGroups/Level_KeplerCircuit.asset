@@ -16,7 +16,19 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 8f8791782735cb240afbce72442595b4
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 7250db7ac280e8147a754e0410354933
+    m_Address: KeplerCircuit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - level
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 767f93081590a0144bd64a925a2476c6
+    m_Address: KeplerCircuitData
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - levelData
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3e32300ceb0a2fd4f862304da01ce83c, type: 2}
   m_SchemaSet:

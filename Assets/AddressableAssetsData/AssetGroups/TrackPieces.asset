@@ -233,12 +233,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - ground
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: afd013cdb1ae0f34e95490c692ad3426
-    m_Address: grass
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ground
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b89cdc5afaf074a45866b2b17f83f7df
     m_Address: roadCornerLargeWallInner
     m_ReadOnly: 0
@@ -290,7 +284,8 @@ MonoBehaviour:
   - m_GUID: c8d54a7468e06e243883d5a71b23bc9b
     m_Address: roadStraightSkew
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - models
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb69362d41c579a46b5aeaa50351f3b6
     m_Address: roadStraightBridgeStart
@@ -323,7 +318,7 @@ MonoBehaviour:
     - ground
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e917bded3b444c5489fdc772c20a38fa
-    m_Address: Models/KennyAssets/TrackPieces
+    m_Address: Models
     m_ReadOnly: 0
     m_SerializedLabels:
     - models
