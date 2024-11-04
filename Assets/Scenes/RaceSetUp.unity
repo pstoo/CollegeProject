@@ -151,9 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04df9ca8712500b4586aa105bfc26647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultTrack: DUMMY-THROW-ERROR
-  keys:
-  - KeplerCircuit
 --- !u!4 &231046229
 Transform:
   m_ObjectHideFlags: 0
@@ -517,7 +514,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.169128, g: 0.16991752, b: 0.174, a: 0}
+  m_BackGroundColor: {r: 0.238461, g: 0.238461, b: 0.303, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -918,42 +915,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 507646043}
     m_Modifications:
-    - target: {fileID: 321086541770995532, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
-      propertyPath: m_Colors.m_PressedColor.b
-      value: 0.799
-      objectReference: {fileID: 0}
-    - target: {fileID: 321086541770995532, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
-      propertyPath: m_Colors.m_PressedColor.g
-      value: 0.799
-      objectReference: {fileID: 0}
-    - target: {fileID: 321086541770995532, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
-      propertyPath: m_Colors.m_PressedColor.r
-      value: 0.799
-      objectReference: {fileID: 0}
-    - target: {fileID: 321086541770995532, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.b
-      value: 0.813
-      objectReference: {fileID: 0}
-    - target: {fileID: 321086541770995532, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.g
-      value: 0.813
-      objectReference: {fileID: 0}
-    - target: {fileID: 321086541770995532, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.r
-      value: 0.813
-      objectReference: {fileID: 0}
-    - target: {fileID: 321086541770995532, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0.72800004
-      objectReference: {fileID: 0}
-    - target: {fileID: 321086541770995532, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0.72800004
-      objectReference: {fileID: 0}
-    - target: {fileID: 321086541770995532, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 0.72800004
-      objectReference: {fileID: 0}
     - target: {fileID: 3373839030962489230, guid: fae74c55f3e2237409ad02adf17efe08, type: 3}
       propertyPath: m_Name
       value: TrackButton
