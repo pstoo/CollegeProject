@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class TrackLoader : MonoBehaviour
 {
+    [SerializeField] private CatalogLoader catalogs;
     private static List<string> keys = new() { "levelData" }; //TODO: A collection of keys may not be necessary.
 
     private List<ScriptableLevel> levelData = new();
@@ -16,8 +17,8 @@ public class TrackLoader : MonoBehaviour
     private AsyncOperationHandle<IList<ScriptableLevel>> levelDataHandle;
     private AsyncOperationHandle<SceneInstance> trackHandle;
 
-    public event LoadingCompleteHandler LoadingComplete;
-    public delegate void LoadingCompleteHandler();
+    public event TrackLoadingCompleteHandler LoadingComplete;
+    public delegate void TrackLoadingCompleteHandler();
 
     public void LoadTrack(string address)
     {
@@ -28,8 +29,11 @@ public class TrackLoader : MonoBehaviour
     {
         //Load Addressables
         //TODO: Normally keys would go here in place of "levelData". But a collection of keys may not be necessary.
-        levelDataHandle = Addressables.LoadAssetsAsync<ScriptableLevel>("levelData", null); 
-        levelDataHandle.Completed += LoadLevelData;
+        catalogs.CatalogLoadingComplete += () =>
+        {
+            levelDataHandle = Addressables.LoadAssetsAsync<ScriptableLevel>("levelData", null); 
+            levelDataHandle.Completed += LoadLevelData;
+        };
     }
 
     private void LoadLevelData(AsyncOperationHandle<IList<ScriptableLevel>> handle)
