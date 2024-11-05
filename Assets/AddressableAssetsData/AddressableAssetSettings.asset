@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: b15ff1e924390fd4095778525efe66e5
   m_currentHash:
     serializedVersion: 2
-    Hash: 224e30c806678bfa0be79b502c1a5c9b
+    Hash: adde38ce48360539346e5f79f4a61b17
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
       m_ProfileName: DLC1_Dev
       m_Values:
       - m_Id: 608aff52678d7b64d88a1973e84b5965
-        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]/[InternalName]'
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/Data/[InternalName]'
       - m_Id: 81279a57b191b814293dfcd11329ddfc
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: 9c47b57bc1a0e74468c1eed045fae1f7
@@ -86,7 +86,7 @@ MonoBehaviour:
       - m_Id: 9fd32eb106d9c5f4e9c32c16a89edb4c
         m_Value: DLC1
       - m_Id: a325263eab0db5d429967856b53a7626
-        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]/[InternalName]'
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/Data/[InternalName]'
       - m_Id: f90dc7c60f9715640975be0f4deb49e7
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
     - m_InheritedParent: 
@@ -94,7 +94,7 @@ MonoBehaviour:
       m_ProfileName: Dev
       m_Values:
       - m_Id: 608aff52678d7b64d88a1973e84b5965
-        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]/[InternalName]'
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/Data/[InternalName]'
       - m_Id: 81279a57b191b814293dfcd11329ddfc
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: 9c47b57bc1a0e74468c1eed045fae1f7
@@ -102,7 +102,7 @@ MonoBehaviour:
       - m_Id: 9fd32eb106d9c5f4e9c32c16a89edb4c
         m_Value: Base
       - m_Id: a325263eab0db5d429967856b53a7626
-        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]/[InternalName]'
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/Data/[InternalName]'
       - m_Id: f90dc7c60f9715640975be0f4deb49e7
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
     - m_InheritedParent: 

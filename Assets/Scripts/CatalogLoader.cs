@@ -25,12 +25,9 @@ public class CatalogLoader : MonoBehaviour
     void Start()
     {
         buildPlatform = Application.platform.ToString();
-#if UNITY_EDITOR
-        buildPlatform = EditorUserBuildSettings.activeBuildTarget.ToString(); 
-#endif
-        //The editor uses a different variable to get the buildPlatform, so make sure we're using the right one.
+        
+        addressablePath = Addressables.RuntimePath + "/Data";
 
-        addressablePath = Addressables.RuntimePath + "/" + buildPlatform;
         dlcPackages = Directory.GetDirectories(addressablePath);
         StartCoroutine(LoadCatalogs());
     }
