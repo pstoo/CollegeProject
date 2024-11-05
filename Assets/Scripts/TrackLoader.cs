@@ -34,12 +34,14 @@ public class TrackLoader : MonoBehaviour
 
     private void LoadLevelData(AsyncOperationHandle<IList<ScriptableLevel>> handle)
     {
-        if (handle.Status == AsyncOperationStatus.Failed)
+        if (handle.Status == AsyncOperationStatus.Failed) //If anything goes wrong, warn us, but load what you can.
             Debug.LogWarning("Not everything was loaded successfully. Make sure catalog is loaded correctly");
 
-        if (handle.Result != null)
+        if (handle.Result != null) //If anything WAS loaded, go ahead and load it.
             levelData = (List<ScriptableLevel>)handle.Result;
-        LoadingComplete?.Invoke();
+
+        levelData.Sort((x, y) => x.Order.CompareTo(y.Order)); //Sort it by order.
+        LoadingComplete?.Invoke(); //Loading's complete, let's go.
     }
 
     private void OnDestroy()
