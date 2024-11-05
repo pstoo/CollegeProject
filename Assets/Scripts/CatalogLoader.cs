@@ -15,6 +15,8 @@ public class CatalogLoader : MonoBehaviour
     private string[] dlcPackages;
     private string buildPlatform;
 
+    //TODO: In the final game, loading catalogs will take place before loading anything else, so these events will be removed.
+    //For now, it's all happening on one scene.
     public event CatalogLoadingCompleteHandler CatalogLoadingComplete;
     public delegate void CatalogLoadingCompleteHandler();
 
@@ -24,35 +26,37 @@ public class CatalogLoader : MonoBehaviour
     {
         buildPlatform = Application.platform.ToString();
 #if UNITY_EDITOR
-        buildPlatform = EditorUserBuildSettings.activeBuildTarget.ToString();
+        buildPlatform = EditorUserBuildSettings.activeBuildTarget.ToString(); 
 #endif
+        //The editor uses a different variable to get the buildPlatform, so make sure we're using the right one.
 
-        //addressablePath = Path.Combine(Addressables.RuntimePath, buildPlatform);
         addressablePath = Addressables.RuntimePath + "/" + buildPlatform;
         dlcPackages = Directory.GetDirectories(addressablePath);
         StartCoroutine(LoadCatalogs());
-
     }
 
     private IEnumerator LoadCatalogs()
     {
         foreach (string path in dlcPackages)
         {
+            //Due to limitations of the Addressables system, at least one catalog must be within the runtime path.
+            //Might as well have that be the base addressables.
             if (path.Contains("Base"))
-                continue;
+                continue; //If we're in the base assets, we don't care keep going.
 
             string catalogPath = path + "\\catalog.json";
             if (File.Exists(catalogPath))
             {
                 AsyncOperationHandle<IResourceLocator> handle = Addressables.LoadContentCatalogAsync(catalogPath, true);
                 catalogHandles.Add(handle);
-                yield return handle;
+                yield return handle; //wait until the catalog is loaded or something happens.
+                if (handle.Status != AsyncOperationStatus.Succeeded) //Print error if this catalog failed to load.
+                    Debug.LogWarning($"There was a problem with loading the catalog in {path}.");
             }
             else
-            {
                 Debug.LogWarning($"No such catalog exists at {path}. Is it in the right location?");
-            }
         }
+        
         CatalogLoadingComplete?.Invoke();
     }
 }
