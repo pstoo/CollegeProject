@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: b15ff1e924390fd4095778525efe66e5
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: afd013cdb1ae0f34e95490c692ad3426
+    m_Address: Assets/TrackPieces/Ground/grass.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3e32300ceb0a2fd4f862304da01ce83c, type: 2}
   m_SchemaSet:
