@@ -18,283 +18,295 @@ MonoBehaviour:
   m_GUID: 7ec649209b6616f4eb2c7b8a6520aa81
   m_SerializeEntries:
   - m_GUID: 02beb6fee6826dc49a77f99acbc2b52d
-    m_Address: Assets/TrackPieces/Decor/grandStandCoveredRound.prefab
+    m_Address: grandStandCoveredRound
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03c7b8ef8dee84f4c9b975252fe51e9c
-    m_Address: Assets/TrackPieces/Decor/flagCheckers.prefab
+    m_Address: flagCheckers
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d2aa1003f945744bb6f9e54991089af
-    m_Address: Assets/TrackPieces/Decor/billboardLower.prefab
+    m_Address: billboardLower
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 146f9f9ebde930743bea679e79de17fb
-    m_Address: Assets/TrackPieces/Decor/tentClosed.prefab
+    m_Address: tentClosed
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16fb4d9f545d7c54b944904fb567c876
-    m_Address: Assets/TrackPieces/Decor/tentClosedLong.prefab
+    m_Address: tentClosedLong
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a8548746e5998b4c85b11cda1963737
-    m_Address: Assets/TrackPieces/Decor/pitsGarageClosed.prefab
+    m_Address: pitsGarageClosed
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2269de8422803d74e868fb8e236ec715
-    m_Address: Assets/TrackPieces/Decor/lightRed.prefab
+    m_Address: lightRed
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25622c4993852a84eb939c3cdc41d804
-    m_Address: Assets/TrackPieces/Decor/grandStandRound.prefab
+    m_Address: grandStandRound
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2711bf223d35ee14dbdd0026f0fb1f5f
-    m_Address: Assets/TrackPieces/Decor/overhead.prefab
+    m_Address: overhead
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2dc77dee8e2166842a5831957f993957
-    m_Address: Assets/TrackPieces/Decor/billboardDouble_exclusive.prefab
+    m_Address: billboardDouble_exclusive
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3028f267693c38742bdedc572110827c
-    m_Address: Assets/TrackPieces/Decor/fenceCurved.prefab
+    m_Address: fenceCurved
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3087fca2a9c50da4580d796e3f1f8a2c
-    m_Address: Assets/TrackPieces/Decor/bannerTowerRed.prefab
+    m_Address: bannerTowerRed
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 419ebeaec21530b46b574e0cc3d5b831
-    m_Address: Assets/TrackPieces/Decor/flagRed.prefab
+    m_Address: flagRed
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41d5365ebed07c94f9d7e95dd24b0b10
-    m_Address: Assets/TrackPieces/Decor/overheadRound.prefab
+    m_Address: overheadRound
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - decor
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 442d4a0eb8d6adf4595234bc266d1eeb
+    m_Address: railDouble
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4605ecb657a663649a47e810ea8b4898
-    m_Address: Assets/TrackPieces/Decor/pylon.prefab
+    m_Address: pylon
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47ec951070c7f3f4794d65bd3433f006
-    m_Address: Assets/TrackPieces/Decor/fenceStraight.prefab
+    m_Address: fenceStraight
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a423dcca0a261b42960fc6814d3e023
-    m_Address: Assets/TrackPieces/Decor/overheadLights.prefab
+    m_Address: overheadLights
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55af6363db8b04e409b29a58cadf5396
-    m_Address: Assets/TrackPieces/Decor/overheadRoundColored.prefab
+    m_Address: overheadRoundColored
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5693ae2b945d1464fbf340793fafd92a
-    m_Address: Assets/TrackPieces/Decor/pitsGarageCorner.prefab
+    m_Address: pitsGarageCorner
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62ebce03bb8e0a74faa512f7d40c4daa
-    m_Address: Assets/TrackPieces/Decor/flagTankco.prefab
+    m_Address: flagTankco
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 647ef93aa77177b4e9dd482b0c2c48bc
-    m_Address: Assets/TrackPieces/Decor/pitsOfficeCorner.prefab
+    m_Address: pitsOfficeCorner
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6af955e84ab53d946b74ec8359ba996f
-    m_Address: Assets/TrackPieces/Decor/treeSmall.prefab
+    m_Address: treeSmall
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 73c223dcb999ee743aa95347f0431c67
-    m_Address: Assets/TrackPieces/Decor/lightRedDouble.prefab
+    m_Address: lightRedDouble
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85458c1473b005d4f986203bd74249ba
-    m_Address: Assets/TrackPieces/Decor/pitsOfficeRoof.prefab
+    m_Address: pitsOfficeRoof
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ad5d0615f3dbb949bf4451d5762b805
-    m_Address: Assets/TrackPieces/Decor/barrierWall.prefab
+    m_Address: barrierWall
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 96c72a0a21017eb40b0335fead6b7635
-    m_Address: Assets/TrackPieces/Decor/tent.prefab
+    m_Address: tent
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9a19329ddfbc44842b2b4b95504f63ac
-    m_Address: Assets/TrackPieces/Decor/flagGreen.prefab
+    m_Address: flagGreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - decor
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b1e9e2f14cb2e74ab17a349288bbb94
+    m_Address: rail
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9eec6bd765bccb44f88bd9cf86deba83
-    m_Address: Assets/TrackPieces/Decor/tentLong.prefab
+    m_Address: tentLong
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a324b2e80d0074c4f9e379e5246c9a67
-    m_Address: Assets/TrackPieces/Decor/tentRoof.prefab
+    m_Address: tentRoof
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5c96664825367d458f46826afb65e23
-    m_Address: Assets/TrackPieces/Decor/camera_exclusive.prefab
+    m_Address: camera_exclusive
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9cd534326c7eda4ca5c08fb3576ef6e
-    m_Address: Assets/TrackPieces/Decor/barrierRed.prefab
+    m_Address: barrierRed
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa71102f532bbbe4186b84b0adc410fd
-    m_Address: Assets/TrackPieces/Decor/billboardLow.prefab
+    m_Address: billboardLow
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7e0e8c358a0c4c4f939b15fdc13baf7
-    m_Address: Assets/TrackPieces/Decor/treeLarge.prefab
+    m_Address: treeLarge
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8b992a5bcc2b504494d30775464b524
-    m_Address: Assets/TrackPieces/Decor/grandStand.prefab
+    m_Address: grandStand
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b955ab14d79f1f94c911785e38ab6846
-    m_Address: Assets/TrackPieces/Decor/tentRoofDouble.prefab
+    m_Address: tentRoofDouble
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c227ca36471ff4a40917b8dfccaa171b
-    m_Address: Assets/TrackPieces/Decor/lightColored.prefab
+    m_Address: lightColored
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7159ecca9548d14c8419b1c50414f14
-    m_Address: Assets/TrackPieces/Decor/billboard.prefab
+    m_Address: billboard
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c802dc639fcae6140b7d58fb7371c66e
-    m_Address: Assets/TrackPieces/Decor/grandStandCovered.prefab
+    m_Address: grandStandCovered
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9feb573e4cc85c42b3791caab3bddae
-    m_Address: Assets/TrackPieces/Decor/bannerTowerGreen.prefab
+    m_Address: bannerTowerGreen
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdf3772acf3008748be7331d5b8fd2b9
-    m_Address: Assets/TrackPieces/Decor/barrierWhite.prefab
+    m_Address: barrierWhite
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf8cf49c4f2583b4ba985542905bb7ff
-    m_Address: Assets/TrackPieces/Decor/pitsGarage.prefab
+    m_Address: pitsGarage
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5297d75956b89b4fb352df48da5a9f7
-    m_Address: Assets/TrackPieces/Decor/lightPostLarge.prefab
+    m_Address: lightPostLarge
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9fe23f345e75da4a894ee89672c1928
-    m_Address: Assets/TrackPieces/Decor/flagCheckersSmall.prefab
+    m_Address: flagCheckersSmall
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dcec5f9386877264d9d75d9b956868e1
-    m_Address: Assets/TrackPieces/Decor/lightPost_exclusive.prefab
+    m_Address: lightPost_exclusive
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e0b5fcbf555f1df40ac485c4ad4e1222
-    m_Address: Assets/TrackPieces/Decor/grandStandAwning.prefab
+    m_Address: grandStandAwning
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f51c2ccf9f58028419e3101ced9c2b4f
-    m_Address: Assets/TrackPieces/Decor/lightPostModern.prefab
+    m_Address: lightPostModern
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdf2ce1ee5798f84b815b62e0aac42ba
-    m_Address: Assets/TrackPieces/Decor/pitsOffice.prefab
+    m_Address: pitsOffice
     m_ReadOnly: 0
     m_SerializedLabels:
     - decor
