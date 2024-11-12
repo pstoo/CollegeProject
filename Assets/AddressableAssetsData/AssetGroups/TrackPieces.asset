@@ -347,6 +347,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - ground
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fcce634a0e8dd1c48baea78416b3e6ff
+    m_Address: Checkpoints
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - checkpoint
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffb69144c0bcb6f4895217b1f84a57f1
     m_Address: roadStraightArrow
     m_ReadOnly: 0
