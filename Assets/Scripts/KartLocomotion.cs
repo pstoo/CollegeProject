@@ -45,7 +45,10 @@ public class KartLocomotion : MonoBehaviour
             {
                 CalculateSuspension(tire, hit);
                 if (frontTires.Contains(tire))
+                {
                     CancelSlippingForces(tire, kart.FrontWheelGrip);
+                    AdjustSteeringAngle(tire);
+                }
                 else if (rearTires.Contains(tire))
                     CancelSlippingForces(tire, kart.RearWheelGrip);
                 Accelerate(tire);
@@ -53,21 +56,16 @@ public class KartLocomotion : MonoBehaviour
             animator.UpdateSuspensionPoint(tires.IndexOf(tire), hit);
         }
         StabilizeRollForces(frontTires);
+
         foreach (Transform tire in frontTires)
-        {
-            AdjustSteeringAngle(tire);
-        }
 
-        // foreach (Transform tire in rearTires)
-        //     CancelSlippingForces(tire, kart.RearWheelGrip, "back");
+            for (int i = 0; i < tireGFX.Count; i++)
+            {
+                if (i < frontTires.Count)
+                    animator.UpdateTireRotation(i, frontTires[i].localEulerAngles.y);
 
-        for (int i = 0; i < tireGFX.Count; i++)
-        {
-            if (i < frontTires.Count)
-                animator.UpdateTireRotation(i, frontTires[i].localEulerAngles.y);
-
-            animator.UpdateTirePosition(i, tires[i].localPosition.x, tires[i].localPosition.z);
-        }
+                animator.UpdateTirePosition(i, tires[i].localPosition.x, tires[i].localPosition.z);
+            }
     }
 
     private void StabilizeRollForces(List<Transform> tireArray)
@@ -88,13 +86,13 @@ public class KartLocomotion : MonoBehaviour
         bool groundedA = hit.collider != null ? true : false;
         if (groundedA)
             travelA = (-tireA.InverseTransformPoint(hit.point).y - kart.TireRadius) / kart.SuspensionLength;
-        
+
         Physics.Raycast(tireB.position, -Vector3.up, out hit, kart.SuspensionLength);
         bool groundedB = hit.collider != null ? true : false;
 
         if (groundedB)
             travelB = (-tireB.InverseTransformPoint(hit.point).y - kart.TireRadius) / kart.SuspensionLength;
-        
+
         float antiRollForce = (travelA - travelB) * kart.AntiRoll;
         if (groundedA)
             rb.AddForceAtPosition(tireA.up * -antiRollForce, tireA.position);
@@ -152,10 +150,21 @@ public class KartLocomotion : MonoBehaviour
 
     private void Accelerate(Transform tire)
     {
-        if (input.accelerating)
+        if (input.accelerating > 0.0f)
         {
-            float carSpeed = Vector3.Dot(rb.transform.forward, rb.velocity);
-            rb.AddForceAtPosition(tire.forward * kart.Speed, tire.position);
+            float kartSpeed = Vector3.Dot(transform.forward, rb.velocity);
+
+            float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(kartSpeed) / kart.TopSpeed);
+            
+            float availibleTorque = kart.PowerCurve.Evaluate(normalizedSpeed) * input.accelerating * kart.TopSpeed;
+            Debug.Log($"speed:{kartSpeed},speed%:{normalizedSpeed},torque:{availibleTorque}");
+            
+            if (kart.DoPowerCurve)
+                rb.AddForceAtPosition(tire.forward * availibleTorque, tire.position);
+            else
+                rb.AddForceAtPosition(tire.forward * kart.TopSpeed, tire.position);
+            
+            //Debug.Log(rb.velocity);
         }
     }
 
