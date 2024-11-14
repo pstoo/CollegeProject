@@ -18,5 +18,5 @@ MonoBehaviour:
   steeringAngleLimit: 30
   timeToRotate: 0.75
   tireGrip: 0.75
-  speed: 200
+  speed: 100
   tireRadius: 1.1
