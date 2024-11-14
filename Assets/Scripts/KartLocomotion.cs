@@ -40,14 +40,14 @@ public class KartLocomotion : MonoBehaviour
         foreach (Transform tire in tires)
         {
             RaycastHit hit;
-            Ray ray = new(tire.transform.position, -Vector3.up);
+            Ray ray = new(tire.position, -Vector3.up);
             if (Physics.Raycast(ray, out hit, kart.SuspensionLength))
             {
                 CalculateSuspension(tire, hit);
                 CancelSidewaysForce(tire);
                 Accelerate(tire);
-                animator.UpdateSuspensionPoint(tires.IndexOf(tire), hit.point.y);
             }
+            animator.UpdateSuspensionPoint(tires.IndexOf(tire), hit);
         }
         foreach (Transform tire in frontTires)
             AdjustSteeringAngle(tire);
@@ -57,7 +57,7 @@ public class KartLocomotion : MonoBehaviour
             if (i < frontTires.Count)
                 animator.UpdateTireRotation(i, frontTires[i].localEulerAngles.y);
 
-            animator.UpdateTirePosition(i, tires[i].position.x, tires[i].position.z);
+            animator.UpdateTirePosition(i, tires[i].localPosition.x, tires[i].localPosition.z);
         }
     }
 
