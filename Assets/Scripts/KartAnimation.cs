@@ -35,7 +35,7 @@ public class KartAnimation : MonoBehaviour
     public void UpdateSuspensionPoint(int index, RaycastHit hit)
     {
         Vector3 local = transform.InverseTransformPoint(hit.point);
-        
+
         if (!suspensionPoints.ContainsKey(index))
             suspensionPoints.Add(index, hit.point.y);
         else

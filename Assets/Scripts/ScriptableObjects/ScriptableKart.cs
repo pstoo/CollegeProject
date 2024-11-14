@@ -29,6 +29,10 @@ public class ScriptableKart : ScriptableObject
     [Range(0.0f, 1.0f)]
     [Tooltip("A value between 0..1 that determines how much the tires will resist sliding.")]
     private float tireGrip = 1.0f;
+    [SerializeField]
+    [Tooltip("How")]
+    private float antiRollForce = 100.0f;
+    [SerializeField] private bool doAntiRoll = true;
 
     [Header("Acceleration")]
     [SerializeField] private float speed = 50f;
@@ -44,8 +48,10 @@ public class ScriptableKart : ScriptableObject
     public float SteeringAngleLimit { get { return steeringAngleLimit; } }
     public float TimeToRotate { get { return timeToRotate; } }
     public float TireGrip { get { return tireGrip; } }
+    public float AntiRoll { get { return antiRollForce; } }
 
     public float Speed { get { return speed; } }
 
     public float TireRadius { get { return tireRadius; } }
+    public bool DoAntiRoll { get { return doAntiRoll;} }
 }

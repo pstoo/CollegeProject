@@ -49,6 +49,7 @@ public class KartLocomotion : MonoBehaviour
             }
             animator.UpdateSuspensionPoint(tires.IndexOf(tire), hit);
         }
+        StabilizeRollForces(frontTires);
         foreach (Transform tire in frontTires)
             AdjustSteeringAngle(tire);
 
@@ -59,6 +60,38 @@ public class KartLocomotion : MonoBehaviour
 
             animator.UpdateTirePosition(i, tires[i].localPosition.x, tires[i].localPosition.z);
         }
+    }
+
+    private void StabilizeRollForces(List<Transform> tireArray)
+    {
+        //Code from here: https://gamedev.stackexchange.com/questions/118388/how-to-do-an-anti-sway-bar-for-a-car-in-unity-5
+        if (!kart.DoAntiRoll)
+            return; //TODO: Debug
+
+        if (tireArray.Count < 2)
+            return; //Don't calculate if we don't have don't have enough tires to work with.
+        Transform tireA = frontTires[0];
+        Transform tireB = frontTires[1];
+        float travelA = 1.0f;
+        float travelB = 1.0f;
+        RaycastHit hit;
+
+        Physics.Raycast(tireA.position, -Vector3.up, out hit, kart.SuspensionLength);
+        bool groundedA = hit.collider != null ? true : false;
+        if (groundedA)
+            travelA = (-tireA.InverseTransformPoint(hit.point).y - kart.TireRadius) / kart.SuspensionLength;
+        
+        Physics.Raycast(tireB.position, -Vector3.up, out hit, kart.SuspensionLength);
+        bool groundedB = hit.collider != null ? true : false;
+
+        if (groundedB)
+            travelB = (-tireB.InverseTransformPoint(hit.point).y - kart.TireRadius) / kart.SuspensionLength;
+        
+        float antiRollForce = (travelA - travelB) * kart.AntiRoll;
+        if (groundedA)
+            rb.AddForceAtPosition(tireA.up * -antiRollForce, tireA.position);
+        if (groundedB)
+            rb.AddForceAtPosition(tireB.up * antiRollForce, tireB.position);
     }
 
     //Calculates a dampened spring force.

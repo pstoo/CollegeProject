@@ -2730,6 +2730,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 6527399831149905774, guid: 94c6c612fa27d9d4b91dad32f10be679, type: 3}
+      propertyPath: m_CenterOfMass.y
+      value: -1.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8034297596139076096, guid: 94c6c612fa27d9d4b91dad32f10be679, type: 3}
       propertyPath: input
       value: 
