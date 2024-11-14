@@ -11,10 +11,10 @@ using UnityEngine;
 public class KartLocomotion : MonoBehaviour
 {
     [SerializeField] private List<Transform> tires;
-    [SerializeField] private List<Transform> frontTires;
     [SerializeField] private List<Transform> tireGFX;
     [SerializeField] private ScriptableKart kart;
 
+    [SerializeField] private List<Transform> frontTires;
     [SerializeField] private List<Transform> rearTires;
 
     [SerializeField] private InputManager input;
@@ -44,21 +44,60 @@ public class KartLocomotion : MonoBehaviour
             if (Physics.Raycast(ray, out hit, kart.SuspensionLength))
             {
                 CalculateSuspension(tire, hit);
-                CancelSidewaysForce(tire);
+                if (frontTires.Contains(tire))
+                {
+                    CancelSlippingForces(tire, kart.FrontWheelGrip);
+                    AdjustSteeringAngle(tire);
+                }
+                else if (rearTires.Contains(tire))
+                    CancelSlippingForces(tire, kart.RearWheelGrip);
                 Accelerate(tire);
             }
             animator.UpdateSuspensionPoint(tires.IndexOf(tire), hit);
         }
+        StabilizeRollForces(frontTires);
+
         foreach (Transform tire in frontTires)
-            AdjustSteeringAngle(tire);
 
-        for (int i = 0; i < tireGFX.Count; i++)
-        {
-            if (i < frontTires.Count)
-                animator.UpdateTireRotation(i, frontTires[i].localEulerAngles.y);
+            for (int i = 0; i < tireGFX.Count; i++)
+            {
+                if (i < frontTires.Count)
+                    animator.UpdateTireRotation(i, frontTires[i].localEulerAngles.y);
 
-            animator.UpdateTirePosition(i, tires[i].localPosition.x, tires[i].localPosition.z);
-        }
+                animator.UpdateTirePosition(i, tires[i].localPosition.x, tires[i].localPosition.z);
+            }
+    }
+
+    private void StabilizeRollForces(List<Transform> tireArray)
+    {
+        //Code from here: https://gamedev.stackexchange.com/questions/118388/how-to-do-an-anti-sway-bar-for-a-car-in-unity-5
+        if (!kart.DoAntiRoll)
+            return; //TODO: Debug
+
+        if (tireArray.Count < 2)
+            return; //Don't calculate if we don't have don't have enough tires to work with.
+        Transform tireA = frontTires[0];
+        Transform tireB = frontTires[1];
+        float travelA = 1.0f;
+        float travelB = 1.0f;
+        RaycastHit hit;
+
+        Physics.Raycast(tireA.position, -Vector3.up, out hit, kart.SuspensionLength);
+        bool groundedA = hit.collider != null ? true : false;
+        if (groundedA)
+            travelA = (-tireA.InverseTransformPoint(hit.point).y - kart.TireRadius) / kart.SuspensionLength;
+
+        Physics.Raycast(tireB.position, -Vector3.up, out hit, kart.SuspensionLength);
+        bool groundedB = hit.collider != null ? true : false;
+
+        if (groundedB)
+            travelB = (-tireB.InverseTransformPoint(hit.point).y - kart.TireRadius) / kart.SuspensionLength;
+
+        float antiRollForce = (travelA - travelB) * kart.AntiRoll;
+        if (groundedA)
+            rb.AddForceAtPosition(tireA.up * -antiRollForce, tireA.position);
+        if (groundedB)
+            rb.AddForceAtPosition(tireB.up * antiRollForce, tireB.position);
     }
 
     //Calculates a dampened spring force.
@@ -75,12 +114,18 @@ public class KartLocomotion : MonoBehaviour
     }
 
     //Prevents the kart from sliding
-    private void CancelSidewaysForce(Transform tire)
+    private void CancelSlippingForces(Transform tire, AnimationCurve gripFactor)
     {
         Vector3 tireWorldVel = rb.GetPointVelocity(tire.position);
-
         float steeringVel = Vector3.Dot(tire.right, tireWorldVel);
-        float desiredVelChange = -steeringVel * kart.TireGrip;
+        float slipPercentage = Mathf.Abs(steeringVel) / tireWorldVel.magnitude;
+
+        float tireGripFactor = !float.IsNaN(slipPercentage) ? kart.FrontWheelGrip.Evaluate(slipPercentage) : 0;
+
+        if (kart.UseGripCurve == false)
+            tireGripFactor = kart.TireGrip;
+
+        float desiredVelChange = -steeringVel * tireGripFactor;
         float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
         rb.AddForceAtPosition(tire.right * 5f * desiredAccel, tire.position); //5f = Mass of the tires
@@ -105,10 +150,21 @@ public class KartLocomotion : MonoBehaviour
 
     private void Accelerate(Transform tire)
     {
-        if (input.accelerating)
+        if (input.accelerating > 0.0f)
         {
-            float carSpeed = Vector3.Dot(rb.transform.forward, rb.velocity);
-            rb.AddForceAtPosition(tire.forward * kart.Speed, tire.position);
+            float kartSpeed = Vector3.Dot(transform.forward, rb.velocity);
+
+            float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(kartSpeed) / kart.TopSpeed);
+            
+            float availibleTorque = kart.PowerCurve.Evaluate(normalizedSpeed) * input.accelerating * kart.TopSpeed;
+            Debug.Log($"speed:{kartSpeed},speed%:{normalizedSpeed},torque:{availibleTorque}");
+            
+            if (kart.DoPowerCurve)
+                rb.AddForceAtPosition(tire.forward * availibleTorque, tire.position);
+            else
+                rb.AddForceAtPosition(tire.forward * kart.TopSpeed, tire.position);
+            
+            //Debug.Log(rb.velocity);
         }
     }
 

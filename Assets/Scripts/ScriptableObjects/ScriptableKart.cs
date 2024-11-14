@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Kart", menuName = "ScriptableObjects/Kart")]
@@ -25,15 +26,33 @@ public class ScriptableKart : ScriptableObject
     [SerializeField]
     [Tooltip("How long it takes for the tires to reach the maximum steering angle in seconds.")]
     private float timeToRotate = 0.5f;
+
+    [Header("Anti-Slipping")]
     [SerializeField]
     [Range(0.0f, 1.0f)]
     [Tooltip("A value between 0..1 that determines how much the tires will resist sliding.")]
     private float tireGrip = 1.0f;
+    [SerializeField]
+    [Tooltip("tbi")]
+    private AnimationCurve frontWheelGrip;
+    [SerializeField]
+    [Tooltip("tbi")]
+    private AnimationCurve rearWheelGrip;
+    [SerializeField]
+    [Tooltip("How")]
+    private float antiRollForce = 100.0f;
 
-    [Header("Acceleration")]
-    [SerializeField] private float speed = 50f;
+    [Header("Speed")]
+    [SerializeField] private float topSpeed = 50f;
+    [SerializeField]
+    [Tooltip("tbi")]
+    private AnimationCurve powerCurve;
 
     [SerializeField] private float tireRadius = 0.425f;
+    
+    [SerializeField] private bool useGripCurve = true;
+    [SerializeField] private bool doAntiRoll = true;
+    [SerializeField] private bool doPowerCurve = true;
 
 
     //Properties
@@ -43,9 +62,18 @@ public class ScriptableKart : ScriptableObject
 
     public float SteeringAngleLimit { get { return steeringAngleLimit; } }
     public float TimeToRotate { get { return timeToRotate; } }
-    public float TireGrip { get { return tireGrip; } }
 
-    public float Speed { get { return speed; } }
+    public float TireGrip { get { return tireGrip; } }
+    public AnimationCurve FrontWheelGrip { get { return frontWheelGrip; } }
+    public AnimationCurve RearWheelGrip { get { return rearWheelGrip; } }
+    public float AntiRoll { get { return antiRollForce; } }
+
+    public float TopSpeed { get { return topSpeed; } }
+    public AnimationCurve PowerCurve { get { return powerCurve;} }
 
     public float TireRadius { get { return tireRadius; } }
+
+    public bool UseGripCurve { get { return useGripCurve;} }
+    public bool DoAntiRoll { get { return doAntiRoll;} }
+    public bool DoPowerCurve { get { return doPowerCurve; } }
 }

@@ -544,7 +544,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6471208774664075316}
   serializedVersion: 4
-  m_Mass: 100
+  m_Mass: 150
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: -1.75, z: 0}
@@ -601,17 +601,18 @@ MonoBehaviour:
   - {fileID: 8705950269264674093}
   - {fileID: 7567809709151581944}
   - {fileID: 576529741596808401}
-  frontTires:
-  - {fileID: 4370195269922953757}
-  - {fileID: 8705950269264674093}
   tireGFX:
   - {fileID: 2642905075813830936}
   - {fileID: 5682383792329866232}
   - {fileID: 5721549894291567133}
   - {fileID: 5238798039619360906}
   kart: {fileID: 11400000, guid: 97a1609ee248af640946dced74395d45, type: 2}
-  rearTires: []
-  tireRadius: 1.1
+  frontTires:
+  - {fileID: 4370195269922953757}
+  - {fileID: 8705950269264674093}
+  rearTires:
+  - {fileID: 7567809709151581944}
+  - {fileID: 576529741596808401}
   input: {fileID: 0}
   rb: {fileID: 0}
   animator: {fileID: 658111533586508563}

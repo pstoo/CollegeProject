@@ -2726,10 +2726,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCar
       objectReference: {fileID: 0}
-    - target: {fileID: 6527399831149905774, guid: 94c6c612fa27d9d4b91dad32f10be679, type: 3}
-      propertyPath: m_Mass
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 8034297596139076096, guid: 94c6c612fa27d9d4b91dad32f10be679, type: 3}
       propertyPath: input
       value: 
@@ -4440,7 +4436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2758652582628043584, guid: afd013cdb1ae0f34e95490c692ad3426, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 152.1926
+      value: 152.63
       objectReference: {fileID: 0}
     - target: {fileID: 2758652582628043584, guid: afd013cdb1ae0f34e95490c692ad3426, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12893,7 +12889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2758652582628043584, guid: afd013cdb1ae0f34e95490c692ad3426, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 152.2926
+      value: 152.65
       objectReference: {fileID: 0}
     - target: {fileID: 2758652582628043584, guid: afd013cdb1ae0f34e95490c692ad3426, type: 3}
       propertyPath: m_LocalPosition.z
