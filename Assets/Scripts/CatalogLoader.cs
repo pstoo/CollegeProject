@@ -27,8 +27,14 @@ public class CatalogLoader : MonoBehaviour
         buildPlatform = Application.platform.ToString();
         
         addressablePath = Addressables.RuntimePath + "/Data";
+        try {
+            dlcPackages = Directory.GetDirectories(addressablePath);
 
-        dlcPackages = Directory.GetDirectories(addressablePath);
+        }
+        catch 
+        {
+            dlcPackages = new string[1];
+        }
         StartCoroutine(LoadCatalogs());
     }
 
@@ -36,6 +42,8 @@ public class CatalogLoader : MonoBehaviour
     {
         foreach (string path in dlcPackages)
         {
+            if (dlcPackages[0] == null)
+                break;
             //Due to limitations of the Addressables system, at least one catalog must be within the runtime path.
             //Might as well have that be the base addressables.
             if (path.Contains("Base"))
@@ -53,6 +61,7 @@ public class CatalogLoader : MonoBehaviour
             else
                 Debug.LogWarning($"No such catalog exists at {path}. Is it in the right location?");
         }
+        Debug.Log("catalog loader's workin'");
         
         CatalogLoadingComplete?.Invoke();
     }

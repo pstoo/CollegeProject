@@ -17,7 +17,7 @@ public class CameraPlayerTracker : MonoBehaviour
             startPosition.RacerSpawned += SetCamera;
     }
 
-    private void SetCamera(KartLocomotion racer)
+    private void SetCamera(GameObject racer)
     {
         vcam.Follow = racer.transform;
         vcam.LookAt = racer.transform;

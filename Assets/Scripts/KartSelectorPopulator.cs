@@ -1,31 +1,36 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TrackSelectorPopulator : MonoBehaviour
+public class KartSelectorPopulator : MonoBehaviour
 {
-    [SerializeField] private TrackLoader trackLoader;
+
+    [SerializeField] private KartLoader kartLoader;
     [SerializeField] private LayoutElement buttonContainer;
-    [SerializeField] private LayoutElement referenceInScene; //To be disabled
-    [SerializeField] private GameObject trackButtonPrefab;
+    [SerializeField] private LayoutElement referenceInScene; //disable later
+    [SerializeField] private GameObject kartButtonPrefab;
+    [SerializeField] private RectTransform trackSelectorPopulator;
     private List<GameObject> buttons = new();
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         if (referenceInScene.gameObject.activeInHierarchy)
             referenceInScene.gameObject.SetActive(false);
 
-        trackLoader.LoadingComplete += () =>
+        kartLoader.LoadingComplete += () =>
         {
-            foreach (ScriptableLevel levelData in trackLoader.LevelData)
+            foreach (SelectableKart kart in kartLoader.KartSelection)
             {
-                //Set up button properties using prefab
-                GameObject buttonInstance = Instantiate(trackButtonPrefab, buttonContainer.transform);
+                GameObject buttonInstance = Instantiate(kartButtonPrefab, buttonContainer.transform);
                 TextMeshProUGUI buttonText = buttonInstance.GetComponentInChildren<TextMeshProUGUI>();
-                buttonText.text = levelData.Name;
+                buttonText.text = kart.Name;
                 Button button = buttonInstance.GetComponent<Button>();
-                button.onClick.AddListener(() => trackLoader.LoadTrack(levelData.Address));
+                button.onClick.AddListener(() => kartLoader.SelectKart(buttonContainer.transform.parent.gameObject, trackSelectorPopulator.transform.parent.gameObject, kart));
+
                 //Add to list to remove it later.
                 buttons.Add(buttonInstance);
             }

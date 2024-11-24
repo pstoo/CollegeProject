@@ -233,6 +233,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - ground
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afd013cdb1ae0f34e95490c692ad3426
+    m_Address: grass
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ground
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b89cdc5afaf074a45866b2b17f83f7df
     m_Address: roadCornerLargeWallInner
     m_ReadOnly: 0
@@ -299,6 +305,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - ground
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dce3ea7f6c7773044a4daef6e1ff8c9e
+    m_Address: RacerStartPosition
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e093371aacbc8754b99ad6aa5ae2f343
     m_Address: roadCornerBridgeSmall
     m_ReadOnly: 0
@@ -352,6 +364,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - checkpoint
+    - meta
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffb69144c0bcb6f4895217b1f84a57f1
     m_Address: roadStraightArrow
