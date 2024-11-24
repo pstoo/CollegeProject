@@ -160,7 +160,7 @@ public class KartLocomotion : MonoBehaviour
             float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(kartSpeed) / kart.TopSpeed);
             
             float availibleTorque = (kart.PowerCurve.Evaluate(normalizedSpeed) * input.accelerating) * rb.mass;
-            Debug.Log($"speed:{kartSpeed},speed%:{normalizedSpeed},torque:{availibleTorque}");
+            //Debug.Log($"speed:{kartSpeed},speed%:{normalizedSpeed},torque:{availibleTorque}");
             
             if (kart.DoPowerCurve)
                 rb.AddForceAtPosition(tire.forward * availibleTorque, tire.position);
@@ -171,10 +171,12 @@ public class KartLocomotion : MonoBehaviour
         }
     }
 
+    public InputManager Input { set { input = value; } }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(rb.centerOfMass + transform.position, 0.5f);
-        Debug.Log(rb.centerOfMass);
+        //Debug.Log(rb.centerOfMass);
 
         foreach (Transform wheel in tires)
             Gizmos.DrawLine(wheel.transform.position, wheel.transform.position + (-Vector3.up * kart.SuspensionLength));
