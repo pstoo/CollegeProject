@@ -32,6 +32,9 @@ public class KartLocomotion : MonoBehaviour
     //Raycast-based kart implementation
     void FixedUpdate()
     {
+        // float speed = Vector3.Dot(transform.forward, rb.velocity);
+        // float downforce = speed * 20f;
+        // rb.AddForce(-transform.up * downforce);
         if (input.steering != 0)
             lerpTimer += Time.fixedDeltaTime;
         else
@@ -156,7 +159,7 @@ public class KartLocomotion : MonoBehaviour
 
             float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(kartSpeed) / kart.TopSpeed);
             
-            float availibleTorque = kart.PowerCurve.Evaluate(normalizedSpeed) * input.accelerating * kart.TopSpeed;
+            float availibleTorque = (kart.PowerCurve.Evaluate(normalizedSpeed) * input.accelerating) * rb.mass;
             Debug.Log($"speed:{kartSpeed},speed%:{normalizedSpeed},torque:{availibleTorque}");
             
             if (kart.DoPowerCurve)
@@ -170,6 +173,9 @@ public class KartLocomotion : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.DrawSphere(rb.centerOfMass + transform.position, 0.5f);
+        Debug.Log(rb.centerOfMass);
+
         foreach (Transform wheel in tires)
             Gizmos.DrawLine(wheel.transform.position, wheel.transform.position + (-Vector3.up * kart.SuspensionLength));
     }
