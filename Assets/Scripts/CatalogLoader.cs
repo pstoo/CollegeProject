@@ -61,6 +61,7 @@ public class CatalogLoader : MonoBehaviour
             else
                 Debug.LogWarning($"No such catalog exists at {path}. Is it in the right location?");
         }
+        Debug.Log("catalog loader's workin'");
         
         CatalogLoadingComplete?.Invoke();
     }

@@ -29,7 +29,7 @@ public class TrackLoader : MonoBehaviour
     {
         //Load Addressables
         //TODO: Normally keys would go here in place of "levelData". But a collection of keys may not be necessary.
-        catalogs.CatalogLoadingComplete += () =>
+        //catalogs.CatalogLoadingComplete += () =>
         {
             levelDataHandle = Addressables.LoadAssetsAsync<ScriptableLevel>("levelData", null);
             levelDataHandle.Completed += LoadLevelData;

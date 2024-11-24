@@ -17,7 +17,7 @@ public class KartLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        catalogs.CatalogLoadingComplete += () =>
+        //catalogs.CatalogLoadingComplete += () =>
         {
             kartDataHandler = Addressables.LoadAssetsAsync<SelectableKart>("selectableKart", null);
             kartDataHandler.Completed += LoadSelectableKarts;
