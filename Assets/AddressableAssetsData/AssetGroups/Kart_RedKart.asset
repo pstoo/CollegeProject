@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Kart_RedKart
+  m_EditorClassIdentifier: 
+  m_GroupName: Kart_RedKart
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a32e686a7f3366d43b80fa8f7ef40e1c
+  m_SerializeEntries:
+  - m_GUID: 94c6c612fa27d9d4b91dad32f10be679
+    m_Address: RedKartPrefabs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - kart
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97a1609ee248af640946dced74395d45
+    m_Address: RedKartStats
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - kartData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff464780b90cb454184e9dec4782028d
+    m_Address: RedKartData
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - selectableKart
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3e32300ceb0a2fd4f862304da01ce83c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 212a0e85a1c3d1c439e28f521ba1831d, type: 2}
+    - {fileID: 11400000, guid: c84505a978d77aa45a35d14668b364b0, type: 2}
