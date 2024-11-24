@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3856f5ab4078a4092d526c89a762c1, type: 3}
   m_Name: RedKartData
   m_EditorClassIdentifier: 
-  m_name: RedKart
-  address: 
+  m_name: Red Kart
+  address: RedKart
   order: 0
+  prefab: {fileID: 8034297596139076096, guid: 94c6c612fa27d9d4b91dad32f10be679, type: 3}

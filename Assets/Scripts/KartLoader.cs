@@ -36,10 +36,11 @@ public class KartLoader : MonoBehaviour
         LoadingComplete?.Invoke(); //Loading's complete, let's go.
     }
 
-    public void SelectKart(GameObject kartSelectionMenu, GameObject trackSelectionMenu)
+    public void SelectKart(GameObject kartSelectionMenu, GameObject trackSelectionMenu, SelectableKart kart)
     {
         //Make kart selection.
         kartSelectionMenu.SetActive(false);
+        PersistantPlayerData.data.chosenKart = kart;
         trackSelectionMenu.SetActive(true);
     }
 

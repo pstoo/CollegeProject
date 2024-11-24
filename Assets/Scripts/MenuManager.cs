@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private SceneAsset QuickRaceSetUpScene;
+    [SerializeField] private string QuickRaceSetUpScene;
 
     public void LoadQuickRace()
     {
-        SceneManager.LoadScene(QuickRaceSetUpScene.name);
+        SceneManager.LoadScene(QuickRaceSetUpScene);
     }
 }

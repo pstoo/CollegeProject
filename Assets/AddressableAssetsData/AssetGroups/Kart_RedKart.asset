@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: a32e686a7f3366d43b80fa8f7ef40e1c
   m_SerializeEntries:
   - m_GUID: 94c6c612fa27d9d4b91dad32f10be679
-    m_Address: RedKartPrefabs
+    m_Address: RedKart
     m_ReadOnly: 0
     m_SerializedLabels:
     - kart

@@ -29,7 +29,7 @@ public class KartSelectorPopulator : MonoBehaviour
                 TextMeshProUGUI buttonText = buttonInstance.GetComponentInChildren<TextMeshProUGUI>();
                 buttonText.text = kart.Name;
                 Button button = buttonInstance.GetComponent<Button>();
-                button.onClick.AddListener(() => kartLoader.SelectKart(buttonContainer.transform.parent.gameObject, trackSelectorPopulator.transform.parent.gameObject));
+                button.onClick.AddListener(() => kartLoader.SelectKart(buttonContainer.transform.parent.gameObject, trackSelectorPopulator.transform.parent.gameObject, kart));
 
                 //Add to list to remove it later.
                 buttons.Add(buttonInstance);

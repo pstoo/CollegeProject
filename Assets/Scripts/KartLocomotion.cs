@@ -27,6 +27,8 @@ public class KartLocomotion : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 
     //Raycast-based kart implementation
@@ -158,15 +160,15 @@ public class KartLocomotion : MonoBehaviour
             float kartSpeed = Vector3.Dot(transform.forward, rb.velocity);
 
             float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(kartSpeed) / kart.TopSpeed);
-            
+
             float availibleTorque = (kart.PowerCurve.Evaluate(normalizedSpeed) * input.accelerating) * rb.mass;
             //Debug.Log($"speed:{kartSpeed},speed%:{normalizedSpeed},torque:{availibleTorque}");
-            
+
             if (kart.DoPowerCurve)
                 rb.AddForceAtPosition(tire.forward * availibleTorque, tire.position);
             else
                 rb.AddForceAtPosition(tire.forward * kart.TopSpeed, tire.position);
-            
+
             //Debug.Log(rb.velocity);
         }
     }
