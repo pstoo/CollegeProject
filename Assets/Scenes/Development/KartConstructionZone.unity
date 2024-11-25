@@ -1793,7 +1793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 82129bfce4aaf744e86fd4d9d0e3ad42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -111.12
+      value: -29.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 82129bfce4aaf744e86fd4d9d0e3ad42, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1801,7 +1801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 82129bfce4aaf744e86fd4d9d0e3ad42, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 201.07
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 82129bfce4aaf744e86fd4d9d0e3ad42, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2509,6 +2509,10 @@ PrefabInstance:
       value: RedCar
       objectReference: {fileID: 0}
     - target: {fileID: 8034297596139076096, guid: 94c6c612fa27d9d4b91dad32f10be679, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1457326197}
+    - target: {fileID: 8034297596139076096, guid: 94c6c612fa27d9d4b91dad32f10be679, type: 3}
       propertyPath: input
       value: 
       objectReference: {fileID: 522684699}
@@ -2560,6 +2564,11 @@ PrefabInstance:
 --- !u!4 &1457326193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9110898630660747574, guid: 94c6c612fa27d9d4b91dad32f10be679, type: 3}
+  m_PrefabInstance: {fileID: 1457326192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1457326197 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6527399831149905774, guid: 94c6c612fa27d9d4b91dad32f10be679, type: 3}
   m_PrefabInstance: {fileID: 1457326192}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1472598065

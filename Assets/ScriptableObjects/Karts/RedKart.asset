@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6297158f62aa6aa46be12f88c1182e24, type: 3}
   m_Name: RedKart
   m_EditorClassIdentifier: 
-  suspensionLength: 1.75
+  suspensionLength: 2.25
   springStrength: 500
   springDamping: 250
   steeringAngleLimit: 10
@@ -99,8 +99,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0.7
+      time: -0.0015869141
+      value: 1.0018462
       inSlope: 0
       outSlope: 0
       tangentMode: 0

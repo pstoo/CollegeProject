@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "Accelerate",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "9a84c75a-c3ac-40ce-bba3-6c068179d423",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Steer",
@@ -25,17 +25,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "81857070-c984-402f-9453-92c52f4dca27",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KB",
-                    "action": "Accelerate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "A/D [Keyboard]",
                     "id": "302490b3-2493-471a-a78a-61ea71f85a17",
@@ -66,6 +55,39 @@
                     "processors": "",
                     "groups": "KB",
                     "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "W/S",
+                    "id": "41c6607c-006a-4884-930c-ee03ea7c75c9",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accelerate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "93acc34d-5362-47a4-aabb-a5eee799fc8a",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KB",
+                    "action": "Accelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "50531607-e98c-4102-b1f4-8516d10fe88e",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KB",
+                    "action": "Accelerate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
