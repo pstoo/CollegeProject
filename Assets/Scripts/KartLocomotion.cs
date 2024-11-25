@@ -57,6 +57,7 @@ public class KartLocomotion : MonoBehaviour
                 else if (rearTires.Contains(tire))
                     CancelSlippingForces(tire, kart.RearWheelGrip);
                 Accelerate(tire);
+                ApplyHandbrake(tire);
             }
             animator.UpdateSuspensionPoint(tires.IndexOf(tire), hit);
         }
@@ -133,7 +134,7 @@ public class KartLocomotion : MonoBehaviour
         float desiredVelChange = -steeringVel * tireGripFactor;
         float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
 
-        rb.AddForceAtPosition(tire.right * 5f * desiredAccel, tire.position); //5f = Mass of the tires
+        rb.AddForceAtPosition(tire.right * kart.TireMass * desiredAccel, tire.position); //5f = Mass of the tires
     }
 
 
@@ -155,21 +156,40 @@ public class KartLocomotion : MonoBehaviour
 
     private void Accelerate(Transform tire)
     {
-        if (input.accelerating > 0.0f)
+        float coeffient = input.accelerating > 0.0f ? kart.AccelCoeffient : kart.BrakingCoeffient;
+        float kartSpeed = Vector3.Dot(transform.forward, rb.velocity);
+
+        float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(kartSpeed) / kart.TopSpeed);
+
+        float motorForce = (kart.PowerCurve.Evaluate(normalizedSpeed) * input.accelerating) * (rb.mass * coeffient);
+
+        //Debug.Log($"speed:{kartSpeed},speed%:{normalizedSpeed},motorForce:{motorForce}");
+
+        if (kart.DoPowerCurve)
+            rb.AddForceAtPosition(tire.forward * motorForce, tire.position);
+        else
+            rb.AddForceAtPosition(tire.forward * kart.TopSpeed, tire.position);
+    }
+
+    private float CalculateBrakeForces(Transform tire)
+    {
+        Vector3 tireWorldVel = rb.GetPointVelocity(tire.position);
+        float forwardVel = Vector3.Dot(tire.forward, tireWorldVel);
+        float accelPercentage = Mathf.Abs(forwardVel) / tireWorldVel.magnitude;
+
+        float desiredVelChange = -forwardVel * kart.BrakingCoeffient;
+        float desiredAccel = desiredVelChange / Time.fixedDeltaTime;
+
+        return desiredAccel;
+    }
+
+    private void ApplyHandbrake(Transform tire)
+    {
+        if (input.brake)
         {
-            float kartSpeed = Vector3.Dot(transform.forward, rb.velocity);
-
-            float normalizedSpeed = Mathf.Clamp01(Mathf.Abs(kartSpeed) / kart.TopSpeed);
-
-            float availibleTorque = (kart.PowerCurve.Evaluate(normalizedSpeed) * input.accelerating) * rb.mass;
-            //Debug.Log($"speed:{kartSpeed},speed%:{normalizedSpeed},torque:{availibleTorque}");
-
-            if (kart.DoPowerCurve)
-                rb.AddForceAtPosition(tire.forward * availibleTorque, tire.position);
-            else
-                rb.AddForceAtPosition(tire.forward * kart.TopSpeed, tire.position);
-
-            //Debug.Log(rb.velocity);
+            Debug.Log("found");
+            float brakeForce = CalculateBrakeForces(tire);
+            rb.AddForceAtPosition(tire.forward * brakeForce, tire.position);
         }
     }
 

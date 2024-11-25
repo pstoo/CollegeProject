@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6297158f62aa6aa46be12f88c1182e24, type: 3}
   m_Name: RedKart
   m_EditorClassIdentifier: 
-  suspensionLength: 2.25
+  suspensionLength: 2.5
   springStrength: 500
   springDamping: 250
   steeringAngleLimit: 10
@@ -94,13 +94,13 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   antiRollForce: 600
-  topSpeed: 100
+  topSpeed: 200
   powerCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.0015869141
-      value: 1.0018462
+      time: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.2
-      value: 1
+      time: 0.38686037
+      value: 1.0033691
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.56
+      time: 0.58380604
       value: 1
       inSlope: 0
       outSlope: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0.2
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -137,7 +137,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  accelerationCoeffiient: 2
+  brakingCoeffient: 5
   tireRadius: 1.1
+  tireMass: 5
   useGripCurve: 1
   doAntiRoll: 1
   doPowerCurve: 1

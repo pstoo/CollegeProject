@@ -44,6 +44,15 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Handbrake"",
+                    ""type"": ""Value"",
+                    ""id"": ""a71e6a74-ea36-491c-aaaa-2d201f9176e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Accelerate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4cf78cb8-f10b-4ea0-80a2-42802afff1ec"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KB"",
+                    ""action"": ""Handbrake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -134,6 +154,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Accelerate = m_Gameplay.FindAction("Accelerate", throwIfNotFound: true);
         m_Gameplay_Steer = m_Gameplay.FindAction("Steer", throwIfNotFound: true);
+        m_Gameplay_Handbrake = m_Gameplay.FindAction("Handbrake", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -197,12 +218,14 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Accelerate;
     private readonly InputAction m_Gameplay_Steer;
+    private readonly InputAction m_Gameplay_Handbrake;
     public struct GameplayActions
     {
         private @DefaultInputs m_Wrapper;
         public GameplayActions(@DefaultInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Accelerate => m_Wrapper.m_Gameplay_Accelerate;
         public InputAction @Steer => m_Wrapper.m_Gameplay_Steer;
+        public InputAction @Handbrake => m_Wrapper.m_Gameplay_Handbrake;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -218,6 +241,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @Steer.started += instance.OnSteer;
             @Steer.performed += instance.OnSteer;
             @Steer.canceled += instance.OnSteer;
+            @Handbrake.started += instance.OnHandbrake;
+            @Handbrake.performed += instance.OnHandbrake;
+            @Handbrake.canceled += instance.OnHandbrake;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -228,6 +254,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @Steer.started -= instance.OnSteer;
             @Steer.performed -= instance.OnSteer;
             @Steer.canceled -= instance.OnSteer;
+            @Handbrake.started -= instance.OnHandbrake;
+            @Handbrake.performed -= instance.OnHandbrake;
+            @Handbrake.canceled -= instance.OnHandbrake;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -258,5 +287,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     {
         void OnAccelerate(InputAction.CallbackContext context);
         void OnSteer(InputAction.CallbackContext context);
+        void OnHandbrake(InputAction.CallbackContext context);
     }
 }

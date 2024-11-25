@@ -46,8 +46,11 @@ public class ScriptableKart : ScriptableObject
     [SerializeField]
     [Tooltip("tbi")]
     private AnimationCurve powerCurve;
+    [SerializeField] private float accelerationCoeffiient = 2.0f;
+    [SerializeField] private float brakingCoeffient = 2.0f;
 
     [SerializeField] private float tireRadius = 0.425f;
+    [SerializeField] private float tireMass = 5.0f;
     
     [SerializeField] private bool useGripCurve = true;
     [SerializeField] private bool doAntiRoll = true;
@@ -69,8 +72,11 @@ public class ScriptableKart : ScriptableObject
 
     public float TopSpeed { get { return topSpeed; } }
     public AnimationCurve PowerCurve { get { return powerCurve;} }
+    public float AccelCoeffient { get { return accelerationCoeffiient; }}
+    public float BrakingCoeffient { get { return brakingCoeffient; } }
 
     public float TireRadius { get { return tireRadius; } }
+    public float TireMass { get { return tireMass; } }
 
     public bool UseGripCurve { get { return useGripCurve;} }
     public bool DoAntiRoll { get { return doAntiRoll;} }
