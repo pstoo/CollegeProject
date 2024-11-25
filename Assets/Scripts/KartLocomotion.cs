@@ -187,7 +187,6 @@ public class KartLocomotion : MonoBehaviour
     {
         if (input.brake)
         {
-            Debug.Log("found");
             float brakeForce = CalculateBrakeForces(tire);
             rb.AddForceAtPosition(tire.forward * brakeForce, tire.position);
         }
