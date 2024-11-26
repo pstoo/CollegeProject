@@ -14556,34 +14556,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1879900184475784931, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879900184475784931, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879900184475784931, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2702317164412426589}
-    - target: {fileID: 1879900184475784931, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879900184475784931, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToMainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879900184475784931, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: WinMenuManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879900184475784931, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3405824701345997704, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -14664,34 +14636,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4987993150231070002, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4987993150231070002, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4987993150231070002, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2702317164412426589}
-    - target: {fileID: 4987993150231070002, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4987993150231070002, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RaceAgain
-      objectReference: {fileID: 0}
-    - target: {fileID: 4987993150231070002, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: WinMenuManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4987993150231070002, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5727022730467585229, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
       propertyPath: m_Name
       value: Racetrack UI
@@ -14701,17 +14645,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
---- !u!114 &2702317164412426589 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1059647042943059581, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}
-  m_PrefabInstance: {fileID: 2702317164412426588}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b699383dc6c637e4b8f55b1c9e4b6c25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2702317164412426590 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2804774366037941208, guid: bc744b1679ebc184e91be7e8dc852d87, type: 3}

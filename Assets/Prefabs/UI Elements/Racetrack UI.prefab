@@ -388,7 +388,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6441616463295565731}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1059647042943059581}
+        m_TargetAssemblyTypeName: WinMenuManager, Assembly-CSharp
+        m_MethodName: ToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1396346454589020283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1077,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7141823750066066332}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1059647042943059581}
+        m_TargetAssemblyTypeName: WinMenuManager, Assembly-CSharp
+        m_MethodName: RaceAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9146928572024839742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,7 +1106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4093812760149134878
 RectTransform:
   m_ObjectHideFlags: 0
