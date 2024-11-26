@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class CheckpointMonitor : MonoBehaviour
 {
-    public static CheckpointMonitor Singleton { get; private set; }
-
     [SerializeField] private int totalLaps = 3;
     [SerializeField] private int currentLap = 1;
     
@@ -16,20 +14,21 @@ public class CheckpointMonitor : MonoBehaviour
     [SerializeField] private int nextCheckpoint = 0;
 
     public delegate void LapDelegate(int currentLap);
-    public event LapDelegate OnLapPassed;
+    static public event LapDelegate OnLapPassed;
+
+    public delegate void TrackCompleteDelegate();
+    static public event TrackCompleteDelegate OnTrackComplete;
 
     void Awake()
     {
-        if (Singleton == null)
-            Singleton = this;
-        else
-            Destroy(this);
-
         foreach (Transform child in transform)
         {
             Checkpoint checkpoint;
             if (child.TryGetComponent<Checkpoint>(out checkpoint))
-                checkpoints.Add(checkpoint);
+                {
+                    checkpoints.Add(checkpoint);
+                    checkpoint.Monitor = this;
+                }
         }
     }
 
@@ -49,5 +48,8 @@ public class CheckpointMonitor : MonoBehaviour
         //If this is the right order,
         if (checkpoints.IndexOf(checkpoint) == nextCheckpoint)
             nextCheckpoint++;
+
+        if (currentLap > totalLaps)
+            OnTrackComplete?.Invoke();
     }
 }

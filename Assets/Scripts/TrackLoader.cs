@@ -23,6 +23,7 @@ public class TrackLoader : MonoBehaviour
     public void LoadTrack(string address)
     {
         trackHandle = Addressables.LoadSceneAsync(address, UnityEngine.SceneManagement.LoadSceneMode.Single);
+        PersistantPlayerData.data.lastPlayedLevel = address;
     }
 
     private void Start()

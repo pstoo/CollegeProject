@@ -21,6 +21,8 @@ public class KartLocomotion : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private KartAnimation animator;
 
+    private bool raceOver = false;
+
     private float lerpTimer = 0.0f; //Value used to lerp between the current and desired tire angle.
 
     // Start is called before the first frame update
@@ -29,11 +31,15 @@ public class KartLocomotion : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+
+        CheckpointMonitor.OnTrackComplete += () => raceOver = true;
     }
 
     //Raycast-based kart implementation
     void FixedUpdate()
     {
+        if (raceOver)
+            return;
         // float speed = Vector3.Dot(transform.forward, rb.velocity);
         // float downforce = speed * 20f;
         // rb.AddForce(-transform.up * downforce);

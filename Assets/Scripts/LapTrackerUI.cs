@@ -9,14 +9,12 @@ public class LapTrackerUI : MonoBehaviour
 
     private void Start() 
     {
-        if (CheckpointMonitor.Singleton != null)
-            CheckpointMonitor.Singleton.OnLapPassed += UpdateUI;        
+        CheckpointMonitor.OnLapPassed += UpdateUI;
     }
 
     private void OnDestroy()
     {
-        if (CheckpointMonitor.Singleton != null)
-            CheckpointMonitor.Singleton.OnLapPassed -= UpdateUI;
+        CheckpointMonitor.OnLapPassed -= UpdateUI;
     }
 
     private void UpdateUI(int currentLap)
