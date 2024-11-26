@@ -138,7 +138,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   accelerationCoeffiient: 2
-  brakingCoeffient: 5
+  brakingCoeffient: 2
   tireRadius: 1.1
   tireMass: 5
   useGripCurve: 1
