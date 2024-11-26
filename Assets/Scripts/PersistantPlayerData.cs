@@ -5,6 +5,7 @@ using UnityEngine;
 public class PersistantPlayerData : MonoBehaviour
 {
     public SelectableKart chosenKart;
+    public string lastPlayedLevel;
     public static PersistantPlayerData data;
 
     void Awake() //singleton;

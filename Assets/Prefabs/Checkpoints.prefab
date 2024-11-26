@@ -76,6 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8259560884902058257}
   - component: {fileID: 9220255169187835437}
+  - component: {fileID: 1043612260313839998}
   m_Layer: 0
   m_Name: Checkpoints
   m_TagString: Untagged
@@ -113,3 +114,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalLaps: 3
   currentLap: 0
+  nextCheckpoint: 0
+--- !u!114 &1043612260313839998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705981717584121898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d550cdccb35888147b98567b6cb05804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lapTracker: {fileID: 0}
+  winScreen: {fileID: 0}

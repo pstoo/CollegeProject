@@ -18,6 +18,9 @@ public class CheckpointMonitor : MonoBehaviour
     public delegate void LapDelegate(int currentLap);
     public event LapDelegate OnLapPassed;
 
+    public delegate void TrackCompleteDelegate();
+    static public event TrackCompleteDelegate OnTrackComplete;
+
     void Awake()
     {
         if (Singleton == null)
@@ -49,5 +52,8 @@ public class CheckpointMonitor : MonoBehaviour
         //If this is the right order,
         if (checkpoints.IndexOf(checkpoint) == nextCheckpoint)
             nextCheckpoint++;
+
+        if (currentLap > totalLaps)
+            OnTrackComplete?.Invoke();
     }
 }
